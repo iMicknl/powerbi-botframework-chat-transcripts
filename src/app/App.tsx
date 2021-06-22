@@ -12,15 +12,15 @@ export interface AppProps {
 }
 
 const App = (props: AppProps): JSX.Element => {
-  
+
     const [locale, setLocale] = useState("en-us");
     const [dataView, setDataView] = useState<DataView>(null);
 
-    React.useEffect(() => {
+    useEffect(() => {
         setLocale(props.constructorOptions.host.locale);
     }, [props.constructorOptions])
   
-    React.useEffect(() => {
+    useEffect(() => {
         if (props.visualUpdateOptions?.dataViews.length > 0) {
             setDataView(props.visualUpdateOptions.dataViews[0]);
         }
@@ -28,11 +28,12 @@ const App = (props: AppProps): JSX.Element => {
 
     // Visual has data
     if (dataView?.single) {
+        console.log(typeof(dataView.single.value))
         return (
             <ChatTranscriptVisual locale={locale} activities={dataView.single.value.toString()} />
         );
     } else {
-        return <>Landing {locale}</>;
+        return <>Add your Chat Activities (JSON) to the visual to start.</>;
     }
 
 };
