@@ -28,7 +28,11 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
 
     // Fix roles in PVA context
     activities = cleanPowerVirtualAgentsActivities(activities);
-
+    
+    // Remove trace activity 
+    // TODO fix array filter
+    // activities = activities.filter(activity => activity.type != ActivityTypes.Trace);
+    
     const activityMiddleware = () => next => ({ activity, nextVisibleActivity, ...otherArgs }) => {
         const { name, type } = activity;
 

@@ -26,11 +26,7 @@ export const convertTextToActivities = (textValue: string): IActivity[] => {
  */
 export const cleanPowerVirtualAgentsActivities = (activities: IActivity[]): IActivity[] => {
 
-    // Remove trace activity 
-    // TODO fix array filter
-    // activities = activities.filter(activity => activity.type != ActivityTypes.Trace);
-
-    // 
+    // Change role of the entity behind the account to a valid value.
     for (let activity of activities) {
 
         // 0 - activity is coming from bot
