@@ -1,0 +1,53 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+
+exclude-labels:
+  - 'exclude-from-changelog'
+
+categories:
+  - title: '⚠️ Breaking changes'
+    label: 'breaking'
+  - title: '🚀 Features'
+    label: 'feature'
+  - title: '✨ Enhancement'
+    label: 'enhancement'
+  - title: '📘 Documentation'
+    label: 'documentation'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'fix'
+      - 'bugfix'
+      - 'bug'
+
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+  patch:
+    labels:
+      - 'patch'
+  default: patch
+
+autolabeler:
+  - label: 'documentation'
+    branch:
+      - '/docs{0,1}\/.+/'
+  - label: 'bug'
+    branch:
+      - '/fix\/.+/'
+    title:
+      - '/fix/i'
+  - label: 'enhancement'
+    branch:
+      - '/enhancement\/.+/'
+  - label: 'feature'
+    branch:
+      - '/feature\/.+/'
+      
+template: |
+  ## What's changed
+
+  $CHANGES

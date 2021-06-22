@@ -1,0 +1,42 @@
+{
+  "name": "powerbi-botframework-chat-transcripts",
+  "version": "0.1.0",
+  "description": "Power BI Custom Visual to visualize bot transcripts (activities) which show the interactions between a user and your bot in a webchat.",
+  "license": "MIT",
+  "scripts": {
+    "pbiviz": "pbiviz",
+    "start": "pbiviz start",
+    "package": "pbiviz package",
+    "lint": "tslint -c tslint.json -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iMicknl/powerbi-botframework-chat-transcripts.git"
+  },
+  "contributors": [
+    "Mick Vleeshouwer <mick@imick.nl>"
+  ],
+  "bugs": {
+    "url": "https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues"
+  },
+  "homepage": "https://github.com/iMicknl/powerbi-botframework-chat-transcripts#readme",
+  "dependencies": {
+    "@babel/runtime": "^7.14.6",
+    "@babel/runtime-corejs2": "^7.14.6",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.8",
+    "botframework-webchat": "^4.11.0",
+    "core-js": "^3.15.0",
+    "powerbi-visuals-api": "~3.8.2",
+    "powerbi-visuals-utils-dataviewutils": "^2.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "powerbi-visuals-tools": "^3.2.3",
+    "ts-loader": "6.1.0",
+    "tslint": "^5.18.0",
+    "tslint-microsoft-contrib": "^6.2.0",
+    "typescript": "^4.3.4"
+  }
+}

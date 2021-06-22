@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "skipLibCheck": true,
+        "jsx": "react",
+        "types": [
+            "react",
+            "react-dom"
+        ],
+        "allowJs": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "es6",
+        "sourceMap": true,
+        "outDir": "./.tmp/build/",
+        "moduleResolution": "node",
+        "declaration": true,
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        "allowSyntheticDefaultImports": true
+    },
+    "files": [
+        "./src/visual.ts"
+    ]
+}

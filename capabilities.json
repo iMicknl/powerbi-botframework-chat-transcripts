@@ -1,0 +1,25 @@
+{
+    "supportsLandingPage": false,
+    "dataRoles": [
+        {
+            "displayName": "Chat Activities (JSON)",
+            "name": "activities_json",
+            "kind": "Measure"
+        }
+    ],
+    "objects": {},
+    "dataViewMappings": [
+        {
+            "conditions": [
+                {
+                    "measure": {
+                        "max": 1
+                    }
+                }
+            ],
+            "single": {
+                "role": "activities_json"
+            }
+        }
+    ]
+}
