@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactWebChat, { createStore } from 'botframework-webchat';
+import { ActivityTypes } from "botframework-schema";
 
 import { convertTextToActivities, cleanPowerVirtualAgentsActivities } from '.././utils/transcriptUtils'
 
@@ -32,7 +33,7 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
         const { name, type } = activity;
 
         // Ignore trace activity 
-        if (type === 'trace') {
+        if (type === ActivityTypes.Trace) {
             console.log(activity)
             return false;
         } else {

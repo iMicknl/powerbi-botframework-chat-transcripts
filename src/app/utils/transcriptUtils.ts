@@ -1,4 +1,4 @@
-import { IActivity } from "botframework-schema";
+import { IActivity, RoleTypes } from "botframework-schema";
 
 
 /**
@@ -28,19 +28,19 @@ export const cleanPowerVirtualAgentsActivities = (activities: IActivity[]): IAct
 
     // Remove trace activity 
     // TODO fix array filter
-    // activities = activities.filter(activity => activity.type != "trace");
+    // activities = activities.filter(activity => activity.type != ActivityTypes.Trace);
 
     // 
     for (let activity of activities) {
 
         // 0 - activity is coming from bot
-        if (activity?.from?.role == "0") {
-            activity.from.role = "bot";
+        if (activity?.from.role == "0") {
+            activity.from.role = RoleTypes.Bot;
         }
 
         // 1 - activity is coming from the user interacting with the bot
-        if (activity?.from?.role == "1") {
-            activity.from.role = "user";
+        if (activity?.from.role == "1") {
+            activity.from.role = RoleTypes.User;
         }
 
     }
