@@ -1,6 +1,5 @@
 import { IActivity, RoleTypes } from "botframework-schema";
 
-
 /**
  * Returns list of activities from raw JSON input
  */
