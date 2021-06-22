@@ -6,39 +6,32 @@ import VisualUpdateOptions = powerbi.extensibility.visual.VisualUpdateOptions;
 import IVisual = powerbi.extensibility.visual.IVisual;
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { ChatTranscript, initialState } from "./components/chatTranscript";
+
+import App from "./app/App";
 
 import "./../style/visual.less";
 
 export class Visual implements IVisual {
     private target: HTMLElement;
-    private reactRoot: React.ComponentElement<any, any>;
-    private locale: string;
+    private constructorOptions: VisualConstructorOptions;
 
     constructor(options: VisualConstructorOptions) {
-        this.reactRoot = React.createElement(ChatTranscript, {});
         this.target = options.element;
-        this.locale = options.host.locale;
-
-        ReactDOM.render(this.reactRoot, this.target);
+        this.constructorOptions = options;
+        this.renderComponent(React.createElement(App, { constructorOptions: options }))
     }
 
     public update(options: VisualUpdateOptions) {
-        if (options.dataViews && options.dataViews[0]) {
-            const dataView: DataView = options.dataViews[0];
+        // TODO figure out how to do this without rerender, just update the props / state
+        // https://docs.microsoft.com/en-us/power-bi/developer/visuals/performance-tips#cache-dom-nodes
+        this.renderComponent(React.createElement(App, { constructorOptions: this.constructorOptions, visualUpdateOptions: options }))
+    }
 
-            ChatTranscript.update({
-                locale: this.locale,
-                textLabel: dataView.metadata.columns[0].displayName,
-                textValue: dataView.single.value.toString(),
-            });
-        } else {
-            this.clear();
-        }
-
+    private renderComponent(component) {
+        ReactDOM.render(component, this.target);
     }
 
     private clear() {
-        ChatTranscript.update(initialState);
+        ReactDOM.unmountComponentAtNode(this.target);
     }
 }

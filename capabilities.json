@@ -1,5 +1,6 @@
 {
-    "supportsLandingPage": false,
+    "supportsLandingPage": true,
+    "supportsEmptyDataView": false,
     "dataRoles": [
         {
             "displayName": "Chat Activities (JSON)",
