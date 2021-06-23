@@ -1,6 +1,5 @@
 {
-    "supportsLandingPage": true,
-    "supportsEmptyDataView": false,
+    "supportsLandingPage": false,
     "dataRoles": [
         {
             "displayName": "Chat Activities (JSON)",
@@ -8,7 +7,31 @@
             "kind": "Measure"
         }
     ],
-    "objects": {},
+    "objects": {
+        "styleOptions": {
+            "displayName": "Style Options",
+            "properties": {
+                "bubbleBackground": {
+                    "displayName": "Chat Bubble Color",
+                    "description": "The fill color of the chat bubbles.",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "fontSize": {
+                    "displayName": "Font Szie",
+                    "description": "description.",
+                    "type": {
+                        "numeric": true
+                    }
+                }
+            }
+        }
+    },
     "dataViewMappings": [
         {
             "conditions": [

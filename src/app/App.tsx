@@ -5,6 +5,7 @@ import VisualUpdateOptions = powerbi.extensibility.visual.VisualUpdateOptions;
 import DataView = powerbi.DataView;
 
 import { ChatTranscriptVisual } from './views/ChatTranscriptVisual';
+import { VisualSettings } from "../settings";
 
 export interface AppProps {
     constructorOptions: VisualConstructorOptions;
@@ -25,6 +26,10 @@ const App = (props: AppProps): JSX.Element => {
             setDataView(props.visualUpdateOptions.dataViews[0]);
         }
     }, [props.visualUpdateOptions])
+
+    const settings = VisualSettings.parse(dataView) as VisualSettings;
+
+    console.log(settings.styleOptions)
 
     // Visual has data
     if (dataView?.single) {

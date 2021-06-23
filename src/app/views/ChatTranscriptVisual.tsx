@@ -58,7 +58,7 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
     return (
         <div id="webchat" className="webchatCard">
             <ReactWebChat
-                directLine={{}} // TODO https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues/9
+                directLine={DirectLineMock} // TODO https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues/9
                 userID="Power BI"
                 disabled={true}
                 store={store}
@@ -69,3 +69,11 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
         </div>
     );
 };
+
+
+
+const DirectLineMock = () => {
+
+    subscribe => {}
+
+}
