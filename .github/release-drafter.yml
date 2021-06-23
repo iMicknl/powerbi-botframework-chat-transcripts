@@ -29,7 +29,7 @@ version-resolver:
   patch:
     labels:
       - 'patch'
-  default: patch
+  default: minor
 
 autolabeler:
   - label: 'documentation'
