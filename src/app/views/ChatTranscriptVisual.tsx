@@ -3,10 +3,12 @@ import ReactWebChat, { createStore } from 'botframework-webchat';
 import { ActivityTypes } from "botframework-schema";
 
 import { convertTextToActivities, cleanPowerVirtualAgentsActivities } from '.././utils/transcriptUtils'
+import { VisualSettings } from '../../settings';
 
 export interface ChatTranscriptVisualProps {
     locale: string;
-    activities: string
+    activities: string;
+    settings: VisualSettings;
 }
 
 export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Element => {
@@ -28,11 +30,11 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
 
     // Fix roles in PVA context
     activities = cleanPowerVirtualAgentsActivities(activities);
-    
+
     // Remove trace activity 
     // TODO fix array filter
     // activities = activities.filter(activity => activity.type != ActivityTypes.Trace);
-    
+
     const activityMiddleware = () => next => ({ activity, nextVisibleActivity, ...otherArgs }) => {
         const { name, type } = activity;
 
@@ -49,31 +51,29 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
         return next(action);
     });
 
-    const styleOptions = {
-        hideUploadButton: true,
+    const defaultStyleOptions = {
+        backgroundColor: "none", // Use background color set by Power BI
         hideSendBox: true,
         hideToaster: true // TODO Remove when https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues/9 is resolved.
+    }
+
+    const userStyleOptions = {
+        bubbleBackground: props.settings.styleOptions.bubbleBackground,
+        bubbleTextColor: props.settings.styleOptions.bubbleTextColor,
+        accent: props.settings.styleOptions.accent,
+        subtle: props.settings.styleOptions.subtle,
     }
 
     return (
         <div id="webchat" className="webchatCard">
             <ReactWebChat
-                directLine={DirectLineMock} // TODO https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues/9
-                userID="Power BI"
+                directLine={{}} // TODO https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues/9
                 disabled={true}
                 store={store}
                 activityMiddleware={activityMiddleware}
-                styleOptions={styleOptions}
+                styleOptions={{...defaultStyleOptions, ...userStyleOptions}}
                 locale={locale}
             />;
         </div>
     );
 };
-
-
-
-const DirectLineMock = () => {
-
-    subscribe => {}
-
-}

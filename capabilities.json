@@ -9,11 +9,11 @@
     ],
     "objects": {
         "styleOptions": {
-            "displayName": "Style Options",
+            "displayName": "Chat styling",
             "properties": {
-                "bubbleBackground": {
-                    "displayName": "Chat Bubble Color",
-                    "description": "The fill color of the chat bubbles.",
+                "accent": {
+                    "displayName": "Accent Color",
+                    "description": "Web Chat component accent color.",
                     "type": {
                         "fill": {
                             "solid": {
@@ -22,11 +22,37 @@
                         }
                     }
                 },
-                "fontSize": {
-                    "displayName": "Font Szie",
-                    "description": "description.",
+                "subtle": {
+                    "displayName": "Subtle Color",
+                    "description": "Secondary component color.",
                     "type": {
-                        "numeric": true
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "bubbleBackground": {
+                    "displayName": "Chat Bubble Background Color",
+                    "description": "'Bubble' refers to the container of the activit(ies) from the bot and user.",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "bubbleTextColor": {
+                    "displayName": "Chat Bubble Text Color",
+                    "description": "'Bubble' refers to the container of the activit(ies) from the bot and user.",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
                     }
                 }
             }
