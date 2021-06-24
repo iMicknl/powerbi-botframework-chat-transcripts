@@ -55,7 +55,7 @@
                         }
                     }
                 },
-                "userBubbleBackground": {
+                "bubbleFromUserBackground": {
                     "displayName": "User Bubble Background Color",
                     "description": "'Bubble' refers to the container of the activit(ies) from the bot and user.",
                     "type": {
@@ -66,7 +66,7 @@
                         }
                     }
                 },
-                "userBubbleTextColor": {
+                "bubbleFromUserTextColor": {
                     "displayName": "User Bubble Text Color",
                     "description": "'Bubble' refers to the container of the activit(ies) from the bot and user.",
                     "type": {

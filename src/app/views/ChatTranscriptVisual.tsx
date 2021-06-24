@@ -59,8 +59,10 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
 
     const userStyleOptions: any = { // TODO Strongly type when https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues/5 is resolved.
         bubbleBackground: props.settings.styleOptions.bubbleBackground,
-        bubbleFromUserBackground: props.settings.styleOptions.bubbleBackground,
+        bubbleFromUserBackground: props.settings.styleOptions.bubbleFromUserBackground,
         bubbleTextColor: props.settings.styleOptions.bubbleTextColor,
+        bubbleFromUserTextColor: props.settings.styleOptions.bubbleFromUserTextColor,
+
         accent: props.settings.styleOptions.accent,
         subtle: props.settings.styleOptions.subtle,
     }
