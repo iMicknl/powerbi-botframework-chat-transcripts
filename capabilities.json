@@ -34,7 +34,7 @@
                     }
                 },
                 "bubbleBackground": {
-                    "displayName": "Chat Bubble Background Color",
+                    "displayName": "Bot Bubble Background Color",
                     "description": "'Bubble' refers to the container of the activit(ies) from the bot and user.",
                     "type": {
                         "fill": {
@@ -45,7 +45,7 @@
                     }
                 },
                 "bubbleTextColor": {
-                    "displayName": "Chat Bubble Text Color",
+                    "displayName": "Bot Bubble Text Color",
                     "description": "'Bubble' refers to the container of the activit(ies) from the bot and user.",
                     "type": {
                         "fill": {
@@ -53,6 +53,67 @@
                                 "color": true
                             }
                         }
+                    }
+                },
+                "userBubbleBackground": {
+                    "displayName": "User Bubble Background Color",
+                    "description": "'Bubble' refers to the container of the activit(ies) from the bot and user.",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "userBubbleTextColor": {
+                    "displayName": "User Bubble Text Color",
+                    "description": "'Bubble' refers to the container of the activit(ies) from the bot and user.",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "avatarSettings": {
+            "displayName": "Avatar styling",
+            "properties": {
+                "show": {
+                    "displayName": "Turn avatars on/off",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "botAvatarInitials": {
+                    "displayName": "Bot Avatar Initials",
+                    "description": "Typically rendered as two letters, e.g. 'WC'",
+                    "type": {
+                        "text": true
+                    }
+                },
+                "botAvatarImage": {
+                    "displayName": "Bot Avatar Image",
+                    "description": "URL string (optional)",
+                    "type": {
+                        "text": true
+                    }
+                },
+                "userAvatarInitials": {
+                    "displayName": "User Avatar Initials",
+                    "description": "Typically rendered as two letters, e.g. 'WC'",
+                    "type": {
+                        "text": true
+                    }
+                },
+                "userAvatarImage": {
+                    "displayName": "User Avatar Image",
+                    "description": "URL string (optional)",
+                    "type": {
+                        "text": true
                     }
                 }
             }

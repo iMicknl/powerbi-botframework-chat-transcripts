@@ -8,6 +8,15 @@ export class StyleOptionsSettings {
     public bubbleTextColor: string = "black";
 }
 
+export class AvatarSettings {
+    public show: boolean = true;
+    public botAvatarInitials: string = "Bot";
+    public botAvatarImage: string = "";
+    public userAvatarInitials: string = "User";
+    public userAvatarImage: string = "";
+}
+
 export class VisualSettings extends DataViewObjectsParser {
     public styleOptions: StyleOptionsSettings = new StyleOptionsSettings();
+    public avatarSettings: AvatarSettings = new AvatarSettings();
 }

@@ -57,11 +57,30 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
         hideToaster: true // TODO Remove when https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues/9 is resolved.
     }
 
-    const userStyleOptions = {
+    const userStyleOptions: any = { // TODO Strongly type when https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues/5 is resolved.
         bubbleBackground: props.settings.styleOptions.bubbleBackground,
+        bubbleFromUserBackground: props.settings.styleOptions.bubbleBackground,
         bubbleTextColor: props.settings.styleOptions.bubbleTextColor,
         accent: props.settings.styleOptions.accent,
         subtle: props.settings.styleOptions.subtle,
+    }
+
+    if (props.settings.avatarSettings.show) {
+        // User Avatar
+        if (props.settings.avatarSettings.userAvatarImage) {
+            userStyleOptions.userAvatarImage = props.settings.avatarSettings.userAvatarImage
+            userStyleOptions.userAvatarInitials = "" // Empty string is required when setting userAvatarImage
+        } else if (props.settings.avatarSettings.userAvatarInitials) {
+            userStyleOptions.userAvatarInitials = props.settings.avatarSettings.userAvatarInitials
+        }
+
+        // Bot Avatar
+        if (props.settings.avatarSettings.botAvatarImage) {
+            userStyleOptions.botAvatarImage = props.settings.avatarSettings.botAvatarImage
+            userStyleOptions.botAvatarInitials = "" // Empty string is required when setting botAvatarImage
+        } else if (props.settings.avatarSettings.botAvatarInitials) {
+            userStyleOptions.botAvatarInitials = props.settings.avatarSettings.botAvatarInitials
+        }
     }
 
     return (
@@ -71,7 +90,7 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
                 disabled={true}
                 store={store}
                 activityMiddleware={activityMiddleware}
-                styleOptions={{...defaultStyleOptions, ...userStyleOptions}}
+                styleOptions={{ ...defaultStyleOptions, ...userStyleOptions }}
                 locale={locale}
             />;
         </div>
