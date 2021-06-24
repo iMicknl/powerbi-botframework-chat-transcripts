@@ -1,6 +1,5 @@
 {
     "supportsLandingPage": true,
-    "supportsEmptyDataView": false,
     "dataRoles": [
         {
             "displayName": "Chat Activities (JSON)",
@@ -8,7 +7,118 @@
             "kind": "Measure"
         }
     ],
-    "objects": {},
+    "objects": {
+        "styleOptions": {
+            "displayName": "Chat styling",
+            "properties": {
+                "accent": {
+                    "displayName": "Accent Color",
+                    "description": "Web Chat component accent color.",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "subtle": {
+                    "displayName": "Subtle Color",
+                    "description": "Secondary component color.",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "bubbleBackground": {
+                    "displayName": "Bot Bubble Background Color",
+                    "description": "'Bubble' refers to the container of the activit(ies) from the bot and user.",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "bubbleTextColor": {
+                    "displayName": "Bot Bubble Text Color",
+                    "description": "'Bubble' refers to the container of the activit(ies) from the bot and user.",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "bubbleFromUserBackground": {
+                    "displayName": "User Bubble Background Color",
+                    "description": "'Bubble' refers to the container of the activit(ies) from the bot and user.",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "bubbleFromUserTextColor": {
+                    "displayName": "User Bubble Text Color",
+                    "description": "'Bubble' refers to the container of the activit(ies) from the bot and user.",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "avatarSettings": {
+            "displayName": "Avatar styling",
+            "properties": {
+                "show": {
+                    "displayName": "Turn avatars on/off",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "botAvatarInitials": {
+                    "displayName": "Bot Avatar Initials",
+                    "description": "Typically rendered as two letters, e.g. 'WC'",
+                    "type": {
+                        "text": true
+                    }
+                },
+                "botAvatarImage": {
+                    "displayName": "Bot Avatar Image",
+                    "description": "URL string (optional)",
+                    "type": {
+                        "text": true
+                    }
+                },
+                "userAvatarInitials": {
+                    "displayName": "User Avatar Initials",
+                    "description": "Typically rendered as two letters, e.g. 'WC'",
+                    "type": {
+                        "text": true
+                    }
+                },
+                "userAvatarImage": {
+                    "displayName": "User Avatar Image",
+                    "description": "URL string (optional)",
+                    "type": {
+                        "text": true
+                    }
+                }
+            }
+        }
+    },
     "dataViewMappings": [
         {
             "conditions": [
