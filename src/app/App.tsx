@@ -38,7 +38,7 @@ const App = (props: AppProps): JSX.Element => {
             <ChatTranscriptVisual locale={locale} activities={dataView.single.value.toString()} settings={settings} />
         );
     } else {
-        return <>Add your Chat Activities (JSON) to the visual to start.</>;
+        return <>Add your Chat Activities (JSON) to start using this visual.</>;
     }
 
 };

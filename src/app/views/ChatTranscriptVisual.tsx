@@ -40,7 +40,6 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
 
         // Ignore trace activity 
         if (type === ActivityTypes.Trace) {
-            console.log(activity)
             return false;
         } else {
             return next({ activity, nextVisibleActivity, ...otherArgs });
@@ -51,7 +50,7 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
         return next(action);
     });
 
-    const defaultStyleOptions: StyleOptions  = {
+    const defaultStyleOptions: StyleOptions = {
         backgroundColor: "none", // Use background color set by Power BI
         hideSendBox: true,
         hideToaster: true // TODO Remove when https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues/9 is resolved.
