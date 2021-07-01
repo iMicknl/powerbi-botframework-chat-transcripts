@@ -27,8 +27,8 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install Dependencies (CI)
+        run: npm ci
 
       - name: Package Power BI visual
         run: npm run package
