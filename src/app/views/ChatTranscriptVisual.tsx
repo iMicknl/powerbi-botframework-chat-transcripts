@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReactWebChat, { createStore } from 'botframework-webchat';
+import ReactWebChat, { createStore, StyleOptions } from 'botframework-webchat';
 import { ActivityTypes } from "botframework-schema";
 
 import { convertTextToActivities, cleanPowerVirtualAgentsActivities } from '.././utils/transcriptUtils'
@@ -40,7 +40,6 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
 
         // Ignore trace activity 
         if (type === ActivityTypes.Trace) {
-            console.log(activity)
             return false;
         } else {
             return next({ activity, nextVisibleActivity, ...otherArgs });
@@ -51,13 +50,13 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
         return next(action);
     });
 
-    const defaultStyleOptions = {
+    const defaultStyleOptions: StyleOptions = {
         backgroundColor: "none", // Use background color set by Power BI
         hideSendBox: true,
         hideToaster: true // TODO Remove when https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues/9 is resolved.
     }
 
-    const userStyleOptions: any = { // TODO Strongly type when https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues/5 is resolved.
+    const userStyleOptions: StyleOptions = {
         bubbleBackground: props.settings.styleOptions.bubbleBackground,
         bubbleFromUserBackground: props.settings.styleOptions.bubbleFromUserBackground,
         bubbleTextColor: props.settings.styleOptions.bubbleTextColor,
