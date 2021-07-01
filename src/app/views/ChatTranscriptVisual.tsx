@@ -38,6 +38,16 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
     const activityMiddleware = () => next => ({ activity, nextVisibleActivity, ...otherArgs }) => {
         const { name, type } = activity;
 
+        // PVA: Render survey response (submit) as message
+        if (type === ActivityTypes.Message && activity.value) {
+            for (const value in activity.value) {
+                if (["1", "2", "3", "4", "5"].includes(activity.value[value])) {
+                    activity.text = activity.value[value];
+                    return next({ activity, nextVisibleActivity, ...otherArgs });
+                }
+            }
+        }
+
         // Ignore trace activity 
         if (type === ActivityTypes.Trace) {
             return false;
