@@ -41,9 +41,9 @@ jobs:
           git add package.json pbiviz.json
 
           git commit -m "Bump version to ${{ steps.version.outputs.version }}."
-          git tag -f -a $tag
+          git tag -f -a ${{ github.event.release.tag_name }}
           git push 
-          git push origin -f $tag
+          git push origin -f ${{ github.event.release.tag_name }}
 
       - name: Cache node modules
         uses: actions/cache@v2
