@@ -42,4 +42,6 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: custom-visual-test-version
-          path: dist/*.pbivi
+          path: dist/*.pbiviz
+          if-no-files-found: error
+
