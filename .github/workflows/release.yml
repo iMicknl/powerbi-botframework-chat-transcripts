@@ -22,10 +22,12 @@ jobs:
           version_number=${tag#?}
           echo version: $version_number
           echo "::set-output name=version::$version_number"
-
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
       - name: Bump package.json version to release version
         run: |
-          npm version ${{ steps.version.outputs.version }}
+          npm version ${{ steps.version.outputs.version }} --no-commit-hooks --no-git-tag-version
 
       - name: Update pbiviz.json version to release version
         uses: jossef/action-set-json-field@v1
@@ -36,8 +38,6 @@ jobs:
           
       - name: Commit changes
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
           git add package.json pbiviz.json
 
           git commit -m "Bump version to ${{ steps.version.outputs.version }}."
