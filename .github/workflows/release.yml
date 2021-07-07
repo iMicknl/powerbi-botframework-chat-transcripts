@@ -40,7 +40,7 @@ jobs:
         run: |
           git add package.json pbiviz.json
           git commit -m "Bump version to ${{ steps.version.outputs.version }}."
-          git tag -f -a ${{ github.event.release.tag_name }}
+          git tag -f -a ${{ github.event.release.tag_name }} -m "Release ${{ steps.version.outputs.version }}."
           git push
           git push origin -f ${{ github.event.release.tag_name }}
 
