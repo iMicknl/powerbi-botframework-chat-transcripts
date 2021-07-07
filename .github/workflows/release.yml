@@ -24,7 +24,7 @@ jobs:
           echo "::set-output name=version::$version_number"
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          
+
       - name: Bump package.json version to release version
         run: |
           npm version ${{ steps.version.outputs.version }} --no-commit-hooks --no-git-tag-version
@@ -39,10 +39,9 @@ jobs:
       - name: Commit changes
         run: |
           git add package.json pbiviz.json
-
           git commit -m "Bump version to ${{ steps.version.outputs.version }}."
           git tag -f -a ${{ github.event.release.tag_name }}
-          git push 
+          git push
           git push origin -f ${{ github.event.release.tag_name }}
 
       - name: Cache node modules
