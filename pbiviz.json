@@ -1,25 +1,25 @@
 {
-    "visual": {
-        "name": "Chat Transcripts for Bot Framework",
-        "displayName": "Chat Transcripts for Bot Framework",
-        "guid": "ChatTranscripts2EB305C130CC44C4BBF62A1A900C5379",
-        "visualClassName": "Visual",
-        "version": "0.4.0",
-        "description": "Visualises bot transcripts (activities) which show the interactions between a user and your bot in a webchat.",
-        "supportUrl": "https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues",
-        "gitHubUrl": "https://github.com/iMicknl/powerbi-botframework-chat-transcripts"
-    },
-    "apiVersion": "3.8.2",
-    "author": {
-        "name": "Mick Vleeshouwer",
-        "email": "mivleesh@microsoft.com"
-    },
-    "assets": {
-        "icon": "assets/icon.png"
-    },
-    "externalJS": [],
-    "style": "style/visual.less",
-    "capabilities": "capabilities.json",
-    "dependencies": null,
-    "stringResources": []
+  "visual": {
+    "name": "Chat Transcripts for Bot Framework",
+    "displayName": "Chat Transcripts for Bot Framework",
+    "guid": "ChatTranscripts2EB305C130CC44C4BBF62A1A900C5379",
+    "visualClassName": "Visual",
+    "version": "0.5.0",
+    "description": "Visualises bot transcripts (activities) which show the interactions between a user and your bot in a webchat.",
+    "supportUrl": "https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues",
+    "gitHubUrl": "https://github.com/iMicknl/powerbi-botframework-chat-transcripts"
+  },
+  "apiVersion": "3.8.2",
+  "author": {
+    "name": "Mick Vleeshouwer",
+    "email": "mivleesh@microsoft.com"
+  },
+  "assets": {
+    "icon": "assets/icon.png"
+  },
+  "externalJS": [],
+  "style": "style/visual.less",
+  "capabilities": "capabilities.json",
+  "dependencies": null,
+  "stringResources": []
 }
