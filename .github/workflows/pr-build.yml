@@ -43,3 +43,5 @@ jobs:
         with:
           name: custom-visual-test-version
           path: dist/*.pbiviz
+          if-no-files-found: error
+
