@@ -29,7 +29,7 @@ This project is based on [PowerBI Visual Tools (pbiviz)](https://github.com/micr
 
 ### Contribute to the localisation
 
-If you speak one of the [supported languages](https://docs.microsoft.com/en-us/power-bi/developer/visuals/localization#supported-languages), you can help translate the visual. You can fork the project and translate the strings into your language, or create an issue where you enter the translated strings. The English-US version is the base version and can be used as reference. Have a look at [the existing translations](stringResources).
+If you speak one of the [supported languages](https://docs.microsoft.com/en-us/power-bi/developer/visuals/localization#supported-languages), you can help translate the visual. You can fork the project and translate the strings into your language, or create an issue where you enter the translated strings. The [English (US) version](stringResources/en-US/resources.resjson) is the base version and can be used as reference. Have a look at [the existing translations](stringResources).
 
 ### Start development server
 
