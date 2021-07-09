@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import VisualConstructorOptions = powerbi.extensibility.visual.VisualConstructorOptions;
 import VisualUpdateOptions = powerbi.extensibility.visual.VisualUpdateOptions;
 import DataView = powerbi.DataView;
+import IVisualEventService = powerbi.extensibility.IVisualEventService;
 
 import { ChatTranscriptVisual } from './views/ChatTranscriptVisual';
 import { VisualSettings } from "../settings";
@@ -17,6 +18,7 @@ const App = (props: AppProps): JSX.Element => {
     const [locale, setLocale] = useState("en-us");
     const [dataView, setDataView] = useState<DataView>(null);
     const [settings, setSettings] = useState<VisualSettings>(null);
+    const [eventService, setEventService] = useState<IVisualEventService>(null);
 
     useEffect(() => {
         setLocale(props.constructorOptions.host.locale);
@@ -27,6 +29,10 @@ const App = (props: AppProps): JSX.Element => {
             setDataView(props.visualUpdateOptions.dataViews[0]);
         }
     }, [props.visualUpdateOptions])
+
+    useEffect(() => {
+        setEventService(props.constructorOptions.host.eventService);
+    }, [props.constructorOptions])
 
     useEffect(() => {
         setSettings(VisualSettings.parse<VisualSettings>(dataView))
