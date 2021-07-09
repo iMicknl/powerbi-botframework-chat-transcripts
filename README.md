@@ -27,6 +27,10 @@ To import a Power BI visual from a file, see [Import a visual file from your loc
 
 This project is based on [PowerBI Visual Tools (pbiviz)](https://github.com/microsoft/PowerBI-visuals-tools#powerbi-visual-tools-pbiviz). 
 
+### Contribute to the localisation
+
+If you speak one of the [supported languages](https://docs.microsoft.com/en-us/power-bi/developer/visuals/localization#supported-languages), you can help translate the visual. You can fork the project and translate the strings into your language, or create an issue where you enter the translated strings. The [English (US) version](stringResources/en-US/resources.resjson) is the base version and can be used as reference. Have a look at [the existing translations](stringResources).
+
 ### Start development server
 
 ```npm run start```

@@ -3,6 +3,7 @@
     "dataRoles": [
         {
             "displayName": "Chat Activities (JSON)",
+            "displayNameKey": "roles.chat_activities_json",
             "name": "activities_json",
             "kind": "Measure"
         }
@@ -10,10 +11,13 @@
     "objects": {
         "styleOptions": {
             "displayName": "Chat styling",
+            "displayNameKey": "style.title",
             "properties": {
                 "accent": {
                     "displayName": "Accent Color",
+                    "displayNameKey": "style.accent",
                     "description": "Web Chat component accent color.",
+                    "descriptionKey": "style.accent.description",
                     "type": {
                         "fill": {
                             "solid": {
@@ -24,7 +28,9 @@
                 },
                 "subtle": {
                     "displayName": "Subtle Color",
+                    "displayNameKey": "style.subtle",
                     "description": "Secondary component color.",
+                    "descriptionKey": "style.subtle.description",
                     "type": {
                         "fill": {
                             "solid": {
@@ -35,7 +41,9 @@
                 },
                 "bubbleBackground": {
                     "displayName": "Bot Bubble Background Color",
+                    "displayNameKey": "style.bubbleBackground",
                     "description": "'Bubble' refers to the container of the activit(ies) from the bot and user.",
+                    "descriptionKey": "style.bubbleBackground.description",
                     "type": {
                         "fill": {
                             "solid": {
@@ -46,7 +54,9 @@
                 },
                 "bubbleTextColor": {
                     "displayName": "Bot Bubble Text Color",
+                    "displayNameKey": "style.bubbleTextColor",
                     "description": "'Bubble' refers to the container of the activit(ies) from the bot and user.",
+                    "descriptionKey": "style.bubbleTextColor.description",
                     "type": {
                         "fill": {
                             "solid": {
@@ -57,7 +67,9 @@
                 },
                 "bubbleFromUserBackground": {
                     "displayName": "User Bubble Background Color",
+                    "displayNameKey": "style.bubbleFromUserBackground",
                     "description": "'Bubble' refers to the container of the activit(ies) from the bot and user.",
+                    "descriptionKey": "style.bubbleFromUserBackground.description",
                     "type": {
                         "fill": {
                             "solid": {
@@ -68,7 +80,9 @@
                 },
                 "bubbleFromUserTextColor": {
                     "displayName": "User Bubble Text Color",
+                    "displayNameKey": "style.bubbleFromUserTextColor",
                     "description": "'Bubble' refers to the container of the activit(ies) from the bot and user.",
+                    "descriptionKey": "style.bubbleFromUserTextColor.description",
                     "type": {
                         "fill": {
                             "solid": {
@@ -81,6 +95,7 @@
         },
         "avatarSettings": {
             "displayName": "Avatar styling",
+            "displayNameKey": "avatar.title",
             "properties": {
                 "show": {
                     "displayName": "Turn avatars on/off",
@@ -90,28 +105,36 @@
                 },
                 "botAvatarInitials": {
                     "displayName": "Bot Avatar Initials",
+                    "displayNameKey": "avatar.botAvatarInitials",
                     "description": "Typically rendered as two letters, e.g. 'WC'",
+                    "descriptionKey": "avatar.botAvatarInitials.description",
                     "type": {
                         "text": true
                     }
                 },
                 "botAvatarImage": {
                     "displayName": "Bot Avatar Image",
+                    "displayNameKey": "avatar.botAvatarImage",
                     "description": "URL string (optional)",
+                    "descriptionKey": "avatar.botAvatarImage.description",
                     "type": {
                         "text": true
                     }
                 },
                 "userAvatarInitials": {
                     "displayName": "User Avatar Initials",
+                    "displayNameKey": "avatar.userAvatarInitials",
                     "description": "Typically rendered as two letters, e.g. 'WC'",
+                    "descriptionKey": "avatar.userAvatarInitials.description",
                     "type": {
                         "text": true
                     }
                 },
                 "userAvatarImage": {
                     "displayName": "User Avatar Image",
+                    "displayNameKey": "avatar.userAvatarImage",
                     "description": "URL string (optional)",
+                    "descriptionKey": "avatar.userAvatarImage.description",
                     "type": {
                         "text": true
                     }
