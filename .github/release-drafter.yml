@@ -13,6 +13,8 @@ categories:
     label: 'enhancement'
   - title: '📘 Documentation'
     label: 'documentation'
+  - title: '📦 Dependencies'
+    label: 'dependencies'
   - title: '🐛 Bug Fixes'
     labels:
       - 'fix'
