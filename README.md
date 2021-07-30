@@ -15,6 +15,14 @@ In order to use this custom visual, you will need to have your activities (array
 
 ## How to use
 
+### Power Virtual Agents
+
+This transcript viewer is now available as part of PVA Custom Analytics, see the [official Power Virtual Agents blog post](https://powervirtualagents.microsoft.com/nl-nl/blog/transcript-viewer-now-available-as-part-of-pva-custom-analytics/) for more information. This solution allows customers to create a Power BI dashboard for their Power Virtual Agents chatbots, and includes pre-created screens to show all-up performance, customer satisfaction, topics and transcripts.
+
+Report: [CustomAnalytics for Power Virtual Agents](https://github.com/microsoft/PowerVirtualAgentsSamples/tree/master/CustomAnalytics)
+
+### Custom Power BI report / other scenarios
+
 Power BI visuals are packaged as a single .pbiviz file, that can then be imported into a Power BI report. Head to [releases](https://github.com/iMicknl/powerbi-botframework-chat-transcripts/releases) and download the .pbiviz file of the last available version.
 
 To import a Power BI visual from a file, see [Import a visual file from your local computer into Power BI](https://docs.microsoft.com/en-us/power-bi/developer/visuals/import-visual#import-a-visual-file-from-your-local-computer-into-power-bi).
