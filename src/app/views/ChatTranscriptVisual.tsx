@@ -13,7 +13,8 @@ export interface ChatTranscriptVisualProps {
 
 export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Element => {
 
-    // TODO useState + useEffect or this?
+    // tslint:disable-next-line:no-suspicious-comment
+    // TODO useState + useEffect or this? 
     const textValue = props.activities;
     const locale = props.locale;
     let activities = null;
@@ -31,7 +32,8 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
     // Fix roles in PVA context
     activities = cleanPowerVirtualAgentsActivities(activities);
 
-    // Remove trace activity 
+    // Remove trace activity
+    // tslint:disable-next-line:no-suspicious-comment
     // TODO fix array filter
     // activities = activities.filter(activity => activity.type != ActivityTypes.Trace);
 
@@ -40,6 +42,7 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
 
         // PVA: Render survey response (submit) as message
         if (type === ActivityTypes.Message && activity.value) {
+            // tslint:disable-next-line
             for (const value in activity.value) {
                 if (["1", "2", "3", "4", "5"].includes(activity.value[value])) {
                     activity.text = activity.value[value];
@@ -63,6 +66,7 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
     const defaultStyleOptions: StyleOptions = {
         backgroundColor: "none", // Use background color set by Power BI
         hideSendBox: true,
+        // tslint:disable-next-line:no-suspicious-comment
         hideToaster: true // TODO Remove when https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues/9 is resolved.
     }
 
@@ -97,6 +101,7 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
     return (
         <div id="webchat" className="webchatCard">
             <ReactWebChat
+                // tslint:disable-next-line:no-suspicious-comment
                 directLine={{}} // TODO https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues/9
                 disabled={true}
                 store={store}

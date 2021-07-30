@@ -10,8 +10,7 @@ export const convertTextToActivities = (textValue: string): IActivity[] => {
     }
         
     try {
-        const activities: IActivity[] = JSON.parse(textValue).activities;
-        return activities;
+        return <IActivity[]>JSON.parse(textValue).activities;
     } catch (error) {
         console.error(error);
         throw new Error("JSON invalid.");
