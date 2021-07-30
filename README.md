@@ -17,7 +17,7 @@ In order to use this custom visual, you will need to have your activities (array
 
 ### Power Virtual Agents
 
-This transcript viewer is now available as part of PVA Custom Analytics, see the [official Power Virtual Agents blog post](https://powervirtualagents.microsoft.com/nl-nl/blog/transcript-viewer-now-available-as-part-of-pva-custom-analytics/) for more context. This solution allows customers to create a Power BI dashboard for their Power Virtual Agents chatbots, and includes pre-created screens to show all-up performance, customer satisfaction, topics and transcripts.
+This transcript viewer is now available as part of PVA Custom Analytics, see the [official Power Virtual Agents blog post](https://powervirtualagents.microsoft.com/nl-nl/blog/transcript-viewer-now-available-as-part-of-pva-custom-analytics/) for more information. This solution allows customers to create a Power BI dashboard for their Power Virtual Agents chatbots, and includes pre-created screens to show all-up performance, customer satisfaction, topics and transcripts.
 
 Report: [CustomAnalytics for Power Virtual Agents](https://github.com/microsoft/PowerVirtualAgentsSamples/tree/master/CustomAnalytics)
 
