@@ -25,7 +25,7 @@
     "@babel/runtime-corejs2": "^7.14.6",
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
-    "botframework-schema": "^4.14.0",
+    "botframework-schema": "^4.14.1",
     "botframework-webchat": "^4.14.0",
     "core-js": "^3.15.2",
     "powerbi-visuals-api": "~3.8.2",
