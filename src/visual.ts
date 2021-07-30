@@ -34,13 +34,14 @@ export class Visual implements IVisual {
     }
 
     public update(options: VisualUpdateOptions) {
+        // tslint:disable-next-line:no-suspicious-comment
         // TODO figure out how to do this without rerender, just update the props / state
         // https://docs.microsoft.com/en-us/power-bi/developer/visuals/performance-tips#cache-dom-nodes
         this.renderComponent(React.createElement(App, { constructorOptions: this.constructorOptions, visualUpdateOptions: options }))
 
         // Persist visual settings
         if (options?.dataViews.length > 0) {
-            this.settings = VisualSettings.parse(options.dataViews[0]) as VisualSettings;
+            this.settings = VisualSettings.parse(options.dataViews[0]);
         }
     }
 
