@@ -26,7 +26,7 @@
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
     "botframework-schema": "^4.14.1",
-    "botframework-webchat": "^4.14.0",
+    "botframework-webchat": "^4.14.1",
     "core-js": "^3.17.2",
     "powerbi-visuals-api": "~3.8.3",
     "powerbi-visuals-utils-dataviewutils": "^2.4.1",
