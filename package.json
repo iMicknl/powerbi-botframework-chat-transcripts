@@ -1,6 +1,6 @@
 {
   "name": "powerbi-botframework-chat-transcripts",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "Power BI Custom Visual to visualize bot transcripts (activities) which show the interactions between a user and your bot in a webchat.",
   "license": "MIT",
   "scripts": {
