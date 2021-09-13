@@ -49,7 +49,6 @@ export const cleanPowerVirtualAgentsActivities = (activities: IActivity[]): IAct
  export const cleanOmnichannelActivities = (activities: IActivity[]): IActivity[] => {
 
     for (let activity of activities) {
-
         // Only clean message activities on the lcw channel
         if (activity.channelId === "lcw" && activity.type === ActivityTypes.Message) {
             const message = <IMessageActivity>activity;
@@ -58,9 +57,7 @@ export const cleanPowerVirtualAgentsActivities = (activities: IActivity[]): IAct
             if (message.text === message?.attachments[0].content) {
                 delete(message?.attachments[0])
             }
-
-        } 
-
+        }
     }
 
     return activities;
