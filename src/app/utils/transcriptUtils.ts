@@ -1,4 +1,4 @@
-import { IActivity, RoleTypes } from "botframework-schema";
+import { ActivityTypes, IActivity, IMessageActivity, RoleTypes } from "botframework-schema";
 
 /**
  * Returns list of activities from raw JSON input
@@ -41,3 +41,31 @@ export const cleanPowerVirtualAgentsActivities = (activities: IActivity[]): IAct
 
     return activities;
 };
+
+/**
+ * When Omnichannel for Customer Service (Dynamics 365) is bridging the messages
+ * it will duplicate the text content as attachment
+ */
+ export const cleanOmnichannelActivities = (activities: IActivity[]): IActivity[] => {
+
+    for (let activity of activities) {
+
+        // Only clean message activities on the lcw channel
+        if (activity.channelId === "lcw" && activity.type === ActivityTypes.Message) {
+            const message = <IMessageActivity>activity;
+
+            // Remove attachment, when it is a duplicate of the message
+            if (message.text === message?.attachments[0].content) {
+                delete(message?.attachments[0])
+            }
+
+        } 
+
+    }
+
+    return activities;
+};
+
+
+
+// "text": "Praat met een voorlichter", "attachments": [{ "contentType": "text/html", "content": "Praat met een voorlichter" }],

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactWebChat, { createStore, StyleOptions } from 'botframework-webchat';
 import { ActivityTypes } from "botframework-schema";
 
-import { convertTextToActivities, cleanPowerVirtualAgentsActivities } from '.././utils/transcriptUtils'
+import { convertTextToActivities, cleanPowerVirtualAgentsActivities, cleanOmnichannelActivities } from '.././utils/transcriptUtils'
 import { VisualSettings } from '../../settings';
 
 export interface ChatTranscriptVisualProps {
@@ -29,8 +29,9 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
         return <>Transcript cannot be loaded. No activities.</>;
     }
 
-    // Fix roles in PVA context
+    // Perform channel specific fixes
     activities = cleanPowerVirtualAgentsActivities(activities);
+    activities = cleanOmnichannelActivities(activities);
 
     // Remove trace activity
     // tslint:disable-next-line:no-suspicious-comment
