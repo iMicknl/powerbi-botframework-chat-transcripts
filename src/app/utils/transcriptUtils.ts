@@ -65,7 +65,3 @@ export const cleanPowerVirtualAgentsActivities = (activities: IActivity[]): IAct
 
     return activities;
 };
-
-
-
-// "text": "Praat met een voorlichter", "attachments": [{ "contentType": "text/html", "content": "Praat met een voorlichter" }],
