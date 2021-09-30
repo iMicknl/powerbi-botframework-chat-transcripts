@@ -5,6 +5,8 @@ import { ActivityTypes } from "botframework-schema";
 import { convertTextToActivities, cleanPowerVirtualAgentsActivities, cleanOmnichannelActivities } from '.././utils/transcriptUtils'
 import { VisualSettings } from '../../settings';
 
+import * as moment from 'moment'
+
 export interface ChatTranscriptVisualProps {
     locale: string;
     activities: string;
@@ -18,6 +20,8 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
     const textValue = props.activities;
     const locale = props.locale;
     let activities = null;
+
+    moment.locale(locale);
 
     try {
         activities = convertTextToActivities(textValue);
@@ -40,6 +44,12 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
 
     const activityMiddleware = () => next => ({ activity, nextVisibleActivity, ...otherArgs }) => {
         const { name, type } = activity;
+
+        // Parse activity timestamp and convert from ISO string to human readable format
+        if (activity.timestamp) {
+            const timestamp = moment.unix(activity.timestamp)
+            activity.timestamp = timestamp.format("LL LT");
+        }
 
         // PVA: Render survey response (submit) as message
         if (type === ActivityTypes.Message && activity.value) {
