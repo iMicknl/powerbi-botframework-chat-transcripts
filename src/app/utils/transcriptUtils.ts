@@ -18,6 +18,7 @@ export const convertTextToActivities = (textValue: string): IActivity[] => {
 
 };
 
+
 /**
  * Power Virtual Agents activities are not compliant to the Bot Framework Activity schema
  * https://docs.microsoft.com/en-us/power-virtual-agents/analytics-sessions-transcripts#content-field
@@ -54,7 +55,7 @@ export const cleanPowerVirtualAgentsActivities = (activities: IActivity[]): IAct
             const message = <IMessageActivity>activity;
 
             // Remove attachment, when it is a duplicate of the message
-            if (message.text === message?.attachments[0].content) {
+            if (message.text === message?.attachments[0]?.content) {
                 delete(message?.attachments[0])
             }
         }
