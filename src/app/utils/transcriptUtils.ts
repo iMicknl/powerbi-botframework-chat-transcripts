@@ -19,7 +19,8 @@ export const convertTextToActivities = (textValue: string): IActivity[] => {
 };
 
 /**
- * When using Adaptive Cards, you can
+ * Adaptive Cards can pass the user response via the `value` property of the `MessageActivity`, which
+ * will render as an empty message. This function will show these values as a string in the transcript.
  */
  export const cleanAdaptiveCardActivities = (activities: IActivity[]): IActivity[] => {
 
