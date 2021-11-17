@@ -18,6 +18,26 @@ export const convertTextToActivities = (textValue: string): IActivity[] => {
 
 };
 
+/**
+ * When using Adaptive Cards, you can
+ */
+ export const cleanAdaptiveCardActivities = (activities: IActivity[]): IActivity[] => {
+
+    for (let activity of activities) {
+        if (activity.type === ActivityTypes.Message) {
+            const message = <IMessageActivity>activity;
+
+            if (message.value && !message.text) {
+                if (message?.attachments[0]?.content == "") {
+                    message.attachments[0].content = "User responded: " + JSON.stringify(message.value);
+                }
+            }
+            
+        }
+    }
+
+    return activities;
+};
 
 /**
  * Power Virtual Agents activities are not compliant to the Bot Framework Activity schema
