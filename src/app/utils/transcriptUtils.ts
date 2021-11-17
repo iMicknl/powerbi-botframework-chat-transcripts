@@ -19,6 +19,28 @@ export const convertTextToActivities = (textValue: string): IActivity[] => {
 };
 
 /**
+ * Adaptive Cards can pass the user response via the `value` property of the `MessageActivity`, which
+ * will render as an empty message. This function will show these values as a string in the transcript.
+ */
+ export const cleanAdaptiveCardActivities = (activities: IActivity[]): IActivity[] => {
+
+    for (let activity of activities) {
+        if (activity.type === ActivityTypes.Message) {
+            const message = <IMessageActivity>activity;
+
+            if (message.value && !message.text) {
+                if (message?.attachments[0]?.content == "") {
+                    message.attachments[0].content = "User responded: " + JSON.stringify(message.value);
+                }
+            }
+            
+        }
+    }
+
+    return activities;
+};
+
+/**
  * Power Virtual Agents activities are not compliant to the Bot Framework Activity schema
  * https://docs.microsoft.com/en-us/power-virtual-agents/analytics-sessions-transcripts#content-field
  */
@@ -54,7 +76,7 @@ export const cleanPowerVirtualAgentsActivities = (activities: IActivity[]): IAct
             const message = <IMessageActivity>activity;
 
             // Remove attachment, when it is a duplicate of the message
-            if (message.text === message?.attachments[0].content) {
+            if (message.text === message?.attachments[0]?.content) {
                 delete(message?.attachments[0])
             }
         }
