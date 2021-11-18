@@ -17,8 +17,6 @@ export interface ChatTranscriptVisualProps {
 
 export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Element => {
 
-    // tslint:disable-next-line:no-suspicious-comment
-    // TODO useState + useEffect or this? 
     const textValue = props.activities;
     const locale = props.locale;
     let activities = null;
@@ -36,14 +34,13 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
     }
 
     // Perform channel specific fixes
-    activities = cleanPowerVirtualAgentsActivities(activities);
-    activities = cleanOmnichannelActivities(activities);
-    activities = cleanAdaptiveCardActivities(activities);
-
-    // Remove trace activity
-    // tslint:disable-next-line:no-suspicious-comment
-    // TODO fix array filter
-    // activities = activities.filter(activity => activity.type != ActivityTypes.Trace);
+    try {
+        activities = cleanPowerVirtualAgentsActivities(activities);
+        activities = cleanOmnichannelActivities(activities);
+        activities = cleanAdaptiveCardActivities(activities);
+    } catch (error) {
+        return <>Transcript cannot be loaded. Issue with transformation: {error.toString()}</>;
+    }
 
     const activityMiddleware = () => next => ({ activity, nextVisibleActivity, ...otherArgs }) => {
         const { name, type } = activity;
