@@ -15,8 +15,6 @@ export interface ChatTranscriptVisualProps {
 
 export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Element => {
 
-    // tslint:disable-next-line:no-suspicious-comment
-    // TODO useState + useEffect or this? 
     const textValue = props.activities;
     const locale = props.locale;
     let activities = null;
