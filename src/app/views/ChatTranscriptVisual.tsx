@@ -38,7 +38,7 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
         activities = cleanPowerVirtualAgentsActivities(activities);
         activities = cleanOmnichannelActivities(activities);
         activities = cleanAdaptiveCardActivities(activities);
-        } catch (error) {
+    } catch (error) {
         return <>Transcript cannot be loaded. Issue with transformation: {error.toString()}</>;
     }
 
