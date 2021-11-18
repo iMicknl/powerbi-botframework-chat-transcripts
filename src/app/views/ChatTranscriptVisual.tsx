@@ -5,6 +5,8 @@ import { ActivityTypes } from "botframework-schema";
 import { convertTextToActivities, cleanPowerVirtualAgentsActivities, cleanOmnichannelActivities, cleanAdaptiveCardActivities } from '.././utils/transcriptUtils'
 import { VisualSettings } from '../../settings';
 
+import { OfflineHistoryConnection } from '../OfflineHistoryConnection'
+
 import * as moment from 'moment'
 
 export interface ChatTranscriptVisualProps {
@@ -78,8 +80,6 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
     const defaultStyleOptions: StyleOptions = {
         backgroundColor: "none", // Use background color set by Power BI
         hideSendBox: true,
-        // tslint:disable-next-line:no-suspicious-comment
-        hideToaster: true // TODO Remove when https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues/9 is resolved.
     }
 
     const userStyleOptions: StyleOptions = {
@@ -113,8 +113,7 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
     return (
         <div id="webchat" className="webchatCard">
             <ReactWebChat
-                // tslint:disable-next-line:no-suspicious-comment
-                directLine={{}} // TODO https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues/9
+                directLine={new OfflineHistoryConnection()}
                 disabled={true}
                 store={store}
                 activityMiddleware={activityMiddleware}
