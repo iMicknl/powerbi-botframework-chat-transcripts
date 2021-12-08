@@ -35,7 +35,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "powerbi-visuals-tools": "^3.3.2",
+    "powerbi-visuals-tools": "^4.0.0",
     "ts-loader": "9.2.6",
     "tslint": "^5.20.1",
     "tslint-microsoft-contrib": "^6.2.0",
