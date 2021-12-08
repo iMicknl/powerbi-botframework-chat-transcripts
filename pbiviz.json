@@ -9,7 +9,7 @@
     "supportUrl": "https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues",
     "gitHubUrl": "https://github.com/iMicknl/powerbi-botframework-chat-transcripts"
   },
-  "apiVersion": "3.8.4",
+  "apiVersion": "4.0.0",
   "author": {
     "name": "Mick Vleeshouwer",
     "email": "mivleesh@microsoft.com"
