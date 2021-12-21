@@ -87,6 +87,7 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
 
         accent: props.settings.styleOptions.accent,
         subtle: props.settings.styleOptions.subtle,
+        timestampFormat: props.settings.styleOptions.timestampFormat
     }
 
     if (props.settings.avatarSettings.show) {

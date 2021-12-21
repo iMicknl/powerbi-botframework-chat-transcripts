@@ -14,6 +14,8 @@ import * as ReactDOM from "react-dom";
 import App from "./app/App";
 import { VisualSettings } from "./settings";
 
+
+
 import "./../style/visual.less";
 
 export class Visual implements IVisual {
