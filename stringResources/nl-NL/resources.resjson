@@ -13,6 +13,10 @@
     "style.bubbleFromUserBackground.description": "Kleur de tekstballon die de activiteiten bevat van de gebruiker.",
     "style.bubbleFromUserTextColor": "Tekstkleur van tekstballon (gebruiker)",
     "style.bubbleFromUserTextColor.description": "Kleur de tekst in de tekstballon die de activiteiten bevat van de bot.",
+    "style.timestampFormat": "Tijd notatie",
+    "style.timestampFormat.description": "Wijzig de tijd notatie die wordt gebruikt in de chat.",
+    "style.timestampFormat.absolute": "Absoluut",
+    "style.timestampFormat.relative": "Relatief",
     "avatar.title": "Avatar opmaak",
     "avatar.botAvatarInitials": "Initialen van bot avatar",
     "avatar.botAvatarInitials.description": "Vaak weergegeven als twee letters, bijv. 'WC'",
@@ -21,5 +25,5 @@
     "avatar.userAvatarInitials": "Initialen van gebruikers avatar",
     "avatar.userAvatarInitials.description": "Vaak weergegeven als twee letters, bijv. 'WC'",
     "avatar.userAvatarImage": "Afbeelding van gebruikers avatar",
-    "avatar.userAvatarImage.description": "Link naar de afbeelding (optioneel)"
+    "avatar.userAvatarImage.description": "Link naar de afbeelding (optioneel)",
 }

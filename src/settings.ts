@@ -1,5 +1,6 @@
 import { dataViewObjectsParser } from "powerbi-visuals-utils-dataviewutils";
 import DataViewObjectsParser = dataViewObjectsParser.DataViewObjectsParser;
+import { StyleOptions } from 'botframework-webchat';
 
 export class StyleOptionsSettings {
     public accent: string = "#0063B1";
@@ -8,6 +9,7 @@ export class StyleOptionsSettings {
     public bubbleTextColor: string = "black";
     public bubbleFromUserBackground: string = "white";
     public bubbleFromUserTextColor: string = "black";
+    public timestampFormat: StyleOptions["timestampFormat"] = "absolute"
 }
 
 export class AvatarSettings {

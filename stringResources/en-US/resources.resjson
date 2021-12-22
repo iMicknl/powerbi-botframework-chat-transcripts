@@ -13,6 +13,10 @@
     "style.bubbleFromUserBackground.description": "'Bubble' refers to the container of the activit(ies) from the bot and user.",
     "style.bubbleFromUserTextColor": "User Bubble Text Color",
     "style.bubbleFromUserTextColor.description": "'Bubble' refers to the container of the activit(ies) from the bot and user.",
+    "style.timestampFormat": "Timestamp Format",
+    "style.timestampFormat.description": "Format the timestamp which is shown at every (grouped) message",
+    "style.timestampFormat.absolute": "Absolute",
+    "style.timestampFormat.relative": "Relative",
     "avatar.title": "Avatar styling",
     "avatar.botAvatarInitials": "Bot Avatar Initials",
     "avatar.botAvatarInitials.description": "Typically rendered as two letters, e.g. 'WC'",
@@ -21,5 +25,5 @@
     "avatar.userAvatarInitials": "User Avatar Initials",
     "avatar.userAvatarInitials.description": "Typically rendered as two letters, e.g. 'WC'",
     "avatar.userAvatarImage": "User Avatar Image",
-    "avatar.userAvatarImage.description": "URL string (optional)"
+    "avatar.userAvatarImage.description": "URL string (optional)",
 }

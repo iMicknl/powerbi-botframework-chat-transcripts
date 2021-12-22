@@ -13,6 +13,26 @@
             "displayName": "Chat styling",
             "displayNameKey": "style.title",
             "properties": {
+                "timestampFormat": {
+                    "displayName": "Timestamp format",
+                    "displayNameKey": "style.timestampFormat",
+                    "description": "Format the timestamp shown at every (grouped) message",
+                    "descriptionKey": "style.timestampFormat.description",
+                    "type": {
+                        "enumeration": [
+                            {
+                                "displayName": "Absolute",
+                                "displayNameKey": "style.timestampFormat.absolute",
+                                "value": "absolute"
+                            },
+                            {
+                                "displayName": "Relative",
+                                "displayNameKey": "style.timestampFormat.relative",
+                                "value": "relative"
+                            }
+                        ]
+                    }
+                },
                 "accent": {
                     "displayName": "Accent Color",
                     "displayNameKey": "style.accent",
