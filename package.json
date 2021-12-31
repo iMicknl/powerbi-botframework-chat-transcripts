@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/iMicknl/powerbi-botframework-chat-transcripts#readme",
   "dependencies": {
-    "@babel/runtime": "^7.16.5",
+    "@babel/runtime": "^7.16.7",
     "@babel/runtime-corejs2": "^7.16.5",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
