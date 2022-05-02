@@ -28,7 +28,7 @@
     "botframework-schema": "^4.15.0",
     "botframework-webchat": "^4.15.1",
     "core-js": "^3.21.1",
-    "moment": "^2.29.2",
+    "moment": "^2.29.3",
     "powerbi-visuals-api": "^4.2.0",
     "powerbi-visuals-utils-dataviewutils": "^2.4.1",
     "react": "^17.0.2",
