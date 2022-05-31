@@ -23,7 +23,7 @@
   "dependencies": {
     "@babel/runtime": "^7.18.3",
     "@babel/runtime-corejs2": "^7.18.3",
-    "@types/react": "^18.0.8",
+    "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.5",
     "botframework-schema": "^4.16.0",
     "botframework-webchat": "^4.15.2",
