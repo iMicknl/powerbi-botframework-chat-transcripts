@@ -24,7 +24,7 @@
     "@babel/runtime": "^7.20.1",
     "@babel/runtime-corejs2": "^7.20.1",
     "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
+    "@types/react-dom": "^18.0.8",
     "botframework-schema": "^4.17.1",
     "botframework-webchat": "^4.15.4",
     "core-js": "^3.26.0",
