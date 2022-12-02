@@ -1,4 +1,4 @@
-import { ActivityTypes, IActivity, IMessageActivity, RoleTypes } from "botframework-schema";
+import { ActivityTypes, Channels, IActivity, IMessageActivity, RoleTypes } from "botframework-schema";
 
 /**
  * Returns list of activities from raw JSON input
@@ -105,6 +105,27 @@ export const cleanPowerVirtualAgentsActivities = (activities: IActivity[]): IAct
             // Remove attachment, when it is a duplicate of the message
             if (message.text === message?.attachments[0]?.content) {
                 delete message?.attachments[0];
+            }
+        }
+    }
+
+    return activities;
+};
+
+/**
+ * Messages on the Teams channel can contain the text in textFormat 'plain',
+ * with the same text content duplicated as attachment inside <p> HTML tags
+ */
+ export const cleanTeamsActivities = (activities: IActivity[]): IActivity[] => {
+
+    for (let activity of activities) {
+        // Only clean message activities on the MSTeams channel
+        if (activity.channelId === Channels.Msteams && activity.type === ActivityTypes.Message) {
+            const message = <IMessageActivity>activity;
+
+            // Remove attachment, when it is a duplicate of the original message
+            if (message.text === message?.attachments[0]?.content.replace(/<\/?[^>]+(>|$)/g, "")) {
+                delete(message?.attachments[0])
             }
         }
     }
