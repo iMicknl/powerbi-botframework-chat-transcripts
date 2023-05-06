@@ -1,9 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import App from "./app/App";
-import { VisualSettings } from "./settings";
-
 import powerbi from "powerbi-visuals-api";
 
 import VisualConstructorOptions = powerbi.extensibility.visual.VisualConstructorOptions;
@@ -13,6 +10,9 @@ import IVisual = powerbi.extensibility.visual.IVisual;
 import VisualObjectInstance = powerbi.VisualObjectInstance;
 import EnumerateVisualObjectInstancesOptions = powerbi.EnumerateVisualObjectInstancesOptions;
 import VisualObjectInstanceEnumerationObject = powerbi.VisualObjectInstanceEnumerationObject;
+
+import App from "./app/App";
+import { VisualSettings } from "./settings";
 
 import "./../style/visual.less";
 
