@@ -1,7 +1,7 @@
 import {
-  IBotConnection,
-  ConnectionStatus,
   Activity,
+  ConnectionStatus,
+  IBotConnection
 } from "botframework-directlinejs";
 
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
@@ -11,7 +11,9 @@ import { Subscriber } from "rxjs/Subscriber";
 export class OfflineHistoryConnection implements IBotConnection {
 
   referenceGrammarId?: string | undefined;
+
   public connectionStatus$: BehaviorSubject<ConnectionStatus>;
+  
   public activity$: Observable<Activity>;
 
   public constructor() {

@@ -5,7 +5,7 @@ import { ActivityTypes, IActivity, IMessageActivity, RoleTypes } from "botframew
  */
 export const convertTextToActivities = (textValue: string): IActivity[] => {
 
-    if (typeof(textValue) != "string") {
+    if (typeof textValue != "string") {
         throw new Error("Input is not a string value.");
     }
         
@@ -77,7 +77,7 @@ export const cleanPowerVirtualAgentsActivities = (activities: IActivity[]): IAct
 
             // Remove attachment, when it is a duplicate of the message
             if (message.text === message?.attachments[0]?.content) {
-                delete(message?.attachments[0])
+                delete message?.attachments[0];
             }
         }
     }
