@@ -29,5 +29,5 @@ jobs:
       - name: Install Dependencies (CI)
         run: npm ci
 
-      - name: TSLint
+      - name: ESLint
         run: npm run lint
