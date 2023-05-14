@@ -8,12 +8,26 @@ export const convertTextToActivities = (textValue: string): IActivity[] => {
     if (typeof(textValue) != "string") {
         throw new Error("Input is not a string value.");
     }
-        
+    
+    // Parse text to JSON
+    let json;
     try {
-        return <IActivity[]>JSON.parse(textValue).activities;
+       json = JSON.parse(textValue)
     } catch (error) {
+        if (textValue.length == 32766) {
+            console.error(error);
+            throw new Error("JSON invalid. Your chat conversation exceeds the 32766 character limit of Power BI.");
+        }
         console.error(error);
         throw new Error("JSON invalid.");
+    }
+
+    // Cast JSON object to Bot Framework Activities
+    try {
+        return <IActivity[]>json.activities;
+    } catch (error) {
+        console.error(error);
+        throw new Error("JSON does not contain valid activities.");
     }
 
 };
