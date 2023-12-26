@@ -5,7 +5,7 @@ import { ActivityTypes, IActivity, IMessageActivity, RoleTypes } from "botframew
  */
 export const convertTextToActivities = (textValue: string): IActivity[] => {
 
-    if (typeof(textValue) != "string") {
+    if (typeof textValue != "string") {
         throw new Error("Input is not a string value.");
     }
         
@@ -24,7 +24,7 @@ export const convertTextToActivities = (textValue: string): IActivity[] => {
  */
  export const cleanAdaptiveCardActivities = (activities: IActivity[]): IActivity[] => {
 
-    for (let activity of activities) {
+    for (const activity of activities) {
         if (activity.type === ActivityTypes.Message) {
             const message = <IMessageActivity>activity;
 
@@ -47,7 +47,7 @@ export const convertTextToActivities = (textValue: string): IActivity[] => {
 export const cleanPowerVirtualAgentsActivities = (activities: IActivity[]): IActivity[] => {
 
     // Change role of the entity behind the account to a valid value.
-    for (let activity of activities) {
+    for (const activity of activities) {
 
         // 0 - activity is coming from bot
         if (activity?.from.role == "0") {
@@ -70,14 +70,14 @@ export const cleanPowerVirtualAgentsActivities = (activities: IActivity[]): IAct
  */
  export const cleanOmnichannelActivities = (activities: IActivity[]): IActivity[] => {
 
-    for (let activity of activities) {
+    for (const activity of activities) {
         // Only clean message activities on the lcw channel
         if (activity.channelId === "lcw" && activity.type === ActivityTypes.Message) {
             const message = <IMessageActivity>activity;
 
             // Remove attachment, when it is a duplicate of the message
             if (message.text === message?.attachments[0]?.content) {
-                delete(message?.attachments[0])
+                delete message?.attachments[0];
             }
         }
     }

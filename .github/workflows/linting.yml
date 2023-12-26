@@ -1,4 +1,4 @@
-name: Linters (tslint)
+name: Linters (eslint)
 
 on: [push, pull_request]
 
@@ -11,7 +11,7 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '20'
           
       - name: Cache node modules
         uses: actions/cache@v2
@@ -29,5 +29,5 @@ jobs:
       - name: Install Dependencies (CI)
         run: npm ci
 
-      - name: TSLint
+      - name: ESLint
         run: npm run lint

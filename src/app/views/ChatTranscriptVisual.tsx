@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactWebChat, { createStore, StyleOptions } from 'botframework-webchat';
 import { ActivityTypes } from "botframework-schema";
 
@@ -43,7 +43,7 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
     }
 
     const activityMiddleware = () => next => ({ activity, nextVisibleActivity, ...otherArgs }) => {
-        const { name, type } = activity;
+        const { type } = activity;
 
         // Parse activity timestamp and convert from ISO string to human readable format
         if (activity.timestamp) {
@@ -70,7 +70,7 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
         }
     };
 
-    const store = createStore({ activities }, ({ dispatch }) => next => action => {
+    const store = createStore({ activities }, () => next => action => {
         return next(action);
     });
 

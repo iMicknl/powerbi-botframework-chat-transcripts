@@ -1,3 +1,6 @@
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+
 import powerbi from "powerbi-visuals-api";
 
 import VisualConstructorOptions = powerbi.extensibility.visual.VisualConstructorOptions;
@@ -8,9 +11,6 @@ import VisualObjectInstance = powerbi.VisualObjectInstance;
 import EnumerateVisualObjectInstancesOptions = powerbi.EnumerateVisualObjectInstancesOptions;
 import VisualObjectInstanceEnumerationObject = powerbi.VisualObjectInstanceEnumerationObject;
 
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-
 import App from "./app/App";
 import { VisualSettings } from "./settings";
 
@@ -18,13 +18,15 @@ import "./../style/visual.less";
 
 export class Visual implements IVisual {
     private target: HTMLElement;
+    
     private constructorOptions: VisualConstructorOptions;
+
     private settings: VisualSettings;
 
     constructor(options: VisualConstructorOptions) {
         this.target = options.element;
         this.constructorOptions = options;
-        this.renderComponent(React.createElement(App, { constructorOptions: options }))
+        this.renderComponent(React.createElement(App, { constructorOptions: options }));
     }
 
     public enumerateObjectInstances(
@@ -34,7 +36,10 @@ export class Visual implements IVisual {
     }
 
     public update(options: VisualUpdateOptions) {
-        this.renderComponent(React.createElement(App, { constructorOptions: this.constructorOptions, visualUpdateOptions: options }))
+        this.renderComponent(React.createElement(App, { 
+            constructorOptions: this.constructorOptions, 
+            visualUpdateOptions: options
+        }));
 
         // Persist visual settings
         if (options?.dataViews.length > 0) {
