@@ -118,7 +118,7 @@ export const cleanPowerVirtualAgentsActivities = (activities: IActivity[]): IAct
  */
  export const cleanTeamsActivities = (activities: IActivity[]): IActivity[] => {
 
-    for (let activity of activities) {
+    for (const activity of activities) {
         // Only clean message activities on the MSTeams channel
         if (activity.channelId === Channels.Msteams && activity.type === ActivityTypes.Message) {
             const message = <IMessageActivity>activity;
