@@ -10,3 +10,21 @@ updates:
     # Check the npm registry for updates every day (weekdays)
     schedule:
       interval: "daily"
+    # https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups
+    groups:
+      production-dependencies:
+        dependency-type: "production"
+        exclude-patterns:
+        - "botframework*"
+        - "powerbi*"
+      development-dependencies:
+        dependency-type: "development"
+        exclude-patterns:
+        - "botframework*"
+        - "powerbi*"
+      botframework:
+        patterns:
+        - "botframework*"
+      powerbi:
+        patterns:
+        - "powerbi*"
