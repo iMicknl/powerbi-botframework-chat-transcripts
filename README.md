@@ -33,7 +33,7 @@ To import a Power BI visual from a file, see [Import a visual file from your loc
 
 ## How to contribute to the development
 
-This project is based on [PowerBI Visual Tools (pbiviz)](https://github.com/microsoft/PowerBI-visuals-tools#powerbi-visual-tools-pbiviz). 
+This project is based on [PowerBI Visual Tools (pbiviz)](https://github.com/microsoft/PowerBI-visuals-tools#powerbi-visual-tools-pbiviz) and includes a devcontainer and VSCode configuration to get started with development easily.
 
 ### Contribute to the localisation
 
