@@ -4,16 +4,20 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Package Power BI visual for production",
-            "type": "shell",
-            "command": "npm run package",
-            "problemMatcher": []
-        },
-        {
             "label": "Start Power BI visual development server",
             "type": "shell",
             "command": "npm run start",
-            "problemMatcher": []
+            "problemMatcher": [],
+        },
+        {
+            "label": "Package Power BI visual for production",
+            "type": "shell",
+            "command": "npm run package",
+            "problemMatcher": [],     
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
         }
     ]
 }
