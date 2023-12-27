@@ -54,7 +54,7 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const username = "github-actions"
+            const userName = "github-actions"
             const bodyRegex = ".*Custom Visual created for.*"
 
             const comments = await github.rest.issues.listComments({
