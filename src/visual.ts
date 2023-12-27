@@ -49,7 +49,7 @@ export class Visual implements IVisual {
         // Persist visual settings
         if (options?.dataViews.length > 0) {
             this.settings = VisualSettings.parse(options.dataViews[0]);
-        }   
+        }
     }
 
     private renderComponent(component) {
