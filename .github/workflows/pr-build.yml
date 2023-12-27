@@ -67,6 +67,8 @@ jobs:
               it => it.user?.login === userName && it.body?.match(bodyRegex)
             )
 
+            console.log(filteredComments)
+
             for (const comment of filteredComments) {
               console.log(
                 `Processing issue ${comment.issue_url} user: ${comment.user?.login} comment: ${comment.body}`
@@ -88,7 +90,7 @@ jobs:
           url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}"
           echo url: $url
           echo "url=$url" >> $GITHUB_OUTPUT
-          echo $github
+          echo ${{ github }}
       
       - name: Comment with details on the packaged version (for testing purposes)
         uses: actions/github-script@v7
