@@ -17,7 +17,7 @@ jobs:
         run: echo "PBIVIZ_JSON=$(jq -c . < pbiviz.json)" >> $GITHUB_ENV
 
       - name: Update pbiviz.json version to include PR number
-        uses: jossef/action-set-json-field@v1
+        uses: jossef/action-set-json-field@v2
         with:
           file: pbiviz.json
           field: visual.version
