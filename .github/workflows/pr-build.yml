@@ -63,7 +63,7 @@ jobs:
               issue_number: context.issue.number
             })
             
-            for (const commentTest of comments) {
+            for (const commentTest of comments.data) {
               console.log(commentTest)
               console.log(commentTest.user)
               console.log(commentTest.body?.match(bodyRegex))
