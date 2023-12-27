@@ -1,0 +1,50 @@
+name: Bump PBIViz version on 
+on: pull_request
+
+permissions:
+  pull-requests: write
+  issues: write
+  repository-projects: write
+
+jobs:
+  dependabot:
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+    steps:
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v1
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Retrieve apiVersion from package update
+        id: version
+        if: "contains(steps.metadata.outputs.dependency-names, 'powerbi-visuals-api')"
+        run: |
+          echo "Dependency group: ${steps.dependabot-metadata.outputs.dependency-group}"
+          echo "Updated dependencies: ${steps.dependabot-metadata.outputs.updated-dependencies-json}"
+
+          version_number="$(echo '${{ steps.dependabot-metadata.outputs.updated-dependencies-json }}' | jq '.[] | select(.dependencyName=="powerbi-visuals-api") | .newVersion')";
+          echo apiVersion: $version_number
+
+          echo "apiVersion=$version_number" >> $GITHUB_OUTPUT
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+
+      - name: Update pbiviz.json apiVersion to new package version
+        uses: jossef/action-set-json-field@v2
+        with:
+          file: pbiviz.json
+          field: apiVersion
+          value: "${{ steps.version.outputs.apiVersion }}"
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add pbiviz.json
+          git commit -m "Bump apiVersion to ${{ steps.version.outputs.apiVersion }}."
+          git push
