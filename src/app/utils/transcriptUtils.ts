@@ -1,5 +1,4 @@
 import { ActivityTypes, IActivity, IMessageActivity, RoleTypes } from "botframework-schema";
-import { WebChatActivity } from "botframework-webchat-core"
 
 /**
  * Returns list of activities from raw JSON input
