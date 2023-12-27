@@ -52,7 +52,7 @@ jobs:
       - name: Build artifact URL
         id: artifact-url
         run: |
-          url="${{ github.server_url }}/${{ github.repository }}/actions/runs/{{ github.run_id }}/artifacts/$ {{ steps.artifact-upload-step.outputs.artifact-id }}"
+          url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}"
           echo url: $url
           echo "url=$url" >> $GITHUB_OUTPUT
       
