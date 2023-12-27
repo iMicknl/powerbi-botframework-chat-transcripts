@@ -21,7 +21,6 @@ jobs:
           tag=${{ github.event.release.tag_name }}
           version_number=${tag#?}
           echo version: $version_number
-          echo "::set-output name=version::$version_number"
           echo "version=$version_number" >> $GITHUB_OUTPUT
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
