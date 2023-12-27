@@ -104,7 +104,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `🤖 Custom Visual created for { context.sha }! ✅ 
+              body: `🤖 Custom Visual created for ${context.sha}! ✅ 
               
               Download [custom-visual-test-version]( ${{ steps.artifact-url.outputs.url }}) and test it in Power BI prior to merging this PR.`
             })
