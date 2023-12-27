@@ -62,15 +62,16 @@ jobs:
               repo: context.repo.repo,
               issue_number: context.issue.number
             })
-
-            console.log(comments)
             
             const filteredComments = comments.data.filter(
               it => it.user?.login === userName && it.body?.match(bodyRegex)
             )
 
-            console.log(context)
-            console.log(filteredComments)
+            for (const commentTest of comments) {
+              console.log(commentTest)
+              console.log(commentTest.user?)
+              console.log(commentTest.body?.match(bodyRegex))
+            }
 
             for (const comment of filteredComments) {
               console.log(
@@ -103,7 +104,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `✅ Custom Visual created! 🤖 
+              body: `✅ Custom Visual created for ${{ context.sha }}! 🤖 
               
               Download [custom-visual-test-version]( ${{ steps.artifact-url.outputs.url }}) and test it in Power BI prior to merging this PR.`
             })
