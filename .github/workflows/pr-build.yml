@@ -11,7 +11,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version-file: 'package.json'
 
       - name: Retrieve pbiviz.json file to retrieve version number
         run: echo "PBIVIZ_JSON=$(jq -c . < pbiviz.json)" >> $GITHUB_ENV
