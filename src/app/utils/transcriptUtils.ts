@@ -124,7 +124,7 @@ export const cleanPowerVirtualAgentsActivities = (activities: IActivity[]): IAct
             const message = <IMessageActivity>activity;
 
             // Remove attachment, when it is a duplicate of the original message
-            if (message.text === message?.attachments[0]?.content.replace(/<\/?[^>]+(>|$)/g, "")) {
+            if (message?.attachments[0]?.contentType == "text/html" && message?.attachments[0]?.content.includes(message.text)) {
                 delete(message?.attachments[0])
             }
         }
