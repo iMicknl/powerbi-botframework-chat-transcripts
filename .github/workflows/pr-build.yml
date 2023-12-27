@@ -51,12 +51,12 @@ jobs:
       
       - name: Comment with details on the packaged version (for testing purposes)
         uses: actions/github-script@v5
-          with:
-            github-token: ${{secrets.GITHUB_TOKEN}}
-            script: |
-              github.rest.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: '👋 Test message ${{ steps.artifact-upload-step.outputs.artifact-id }}'
-              })
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Test message ${{ steps.artifact-upload-step.outputs.artifact-id }}'
+            })
