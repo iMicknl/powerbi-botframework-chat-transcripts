@@ -1,4 +1,4 @@
-name: Bump PBIViz version on 
+name: Bump APIVersion in pbiviz.json on powerbi-visuals-api update
 on: pull_request
 
 permissions:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]'
     steps:
-      - name: Dependabot metadata
+      - name: Fetch Dependabot metadata
         id: metadata
         uses: dependabot/fetch-metadata@v1
         with:
@@ -34,7 +34,7 @@ jobs:
         with:
           node-version-file: 'package.json'
 
-      - name: Update pbiviz.json apiVersion to new package version
+      - name: Update pbiviz.json apiVersion to new package version (powerbi-visuals-api)
         uses: jossef/action-set-json-field@v2
         with:
           file: pbiviz.json
