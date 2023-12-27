@@ -8,6 +8,7 @@ import { VisualSettings } from '../../settings';
 import { OfflineHistoryConnection } from '../OfflineHistoryConnection'
 
 import * as moment from 'moment'
+import Markdown from 'markdown-it'
 
 export interface ChatTranscriptVisualProps {
     locale: string;
@@ -109,6 +110,8 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
         }
     }
 
+    const markdownIt = new Markdown()
+
     return (
         <div id="webchat" className="webchatCard">
             <ReactWebChat
@@ -118,6 +121,7 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
                 activityMiddleware={activityMiddleware}
                 styleOptions={{ ...defaultStyleOptions, ...userStyleOptions }}
                 locale={locale}
+                renderMarkdown={markdownIt.render.bind(markdownIt)}
             />;
         </div>
     );
