@@ -1,4 +1,5 @@
 import { ActivityTypes, IActivity, IMessageActivity, RoleTypes } from "botframework-schema";
+import { WebChatActivity } from "botframework-webchat-core"
 
 /**
  * Returns list of activities from raw JSON input
@@ -19,6 +20,20 @@ export const convertTextToActivities = (textValue: string): IActivity[] => {
 };
 
 /**
+ * Since 4.15.3 (https://github.com/microsoft/BotFramework-WebChat/releases/tag/v4.15.3) a field webchat:send-status is required.
+ * This function will add these values to the channelData property.
+ */
+export const addSendStatusToChannelData = (activities: IActivity[]): IActivity[] => {
+
+    for (const activity of activities) {
+        activity["channelData"] = activity["channelData"] || {}
+        activity.channelData["webchat:send-status"] = "sent";
+    }
+
+    return activities;
+};
+
+/**
  * Adaptive Cards can pass the user response via the `value` property of the `MessageActivity`, which
  * will render as an empty message. This function will show these values as a string in the transcript.
  */
@@ -33,7 +48,6 @@ export const convertTextToActivities = (textValue: string): IActivity[] => {
                     message.attachments[0].content = "User responded: " + JSON.stringify(message.value);
                 }
             }
-            
         }
     }
 
