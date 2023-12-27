@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactWebChat, { createStore, StyleOptions } from 'botframework-webchat';
-import { ActivityTypes } from "botframework-schema";
+import { ActivityTypes, IActivity } from "botframework-schema";
 
-import { convertTextToActivities, cleanPowerVirtualAgentsActivities, cleanOmnichannelActivities, cleanAdaptiveCardActivities } from '.././utils/transcriptUtils'
+import { addSendStatusToChannelData, convertTextToActivities, cleanPowerVirtualAgentsActivities, cleanOmnichannelActivities, cleanAdaptiveCardActivities } from '.././utils/transcriptUtils'
 import { VisualSettings } from '../../settings';
 
 import { OfflineHistoryConnection } from '../OfflineHistoryConnection'
@@ -17,9 +17,9 @@ export interface ChatTranscriptVisualProps {
 
 export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Element => {
 
-    const textValue = props.activities;
-    const locale = props.locale;
-    let activities = null;
+    const textValue: string = props.activities;
+    const locale: string = props.locale;
+    let activities: IActivity[] | null = null;
 
     moment.locale(locale);
 
@@ -35,6 +35,7 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
 
     // Perform channel specific fixes
     try {
+        activities = addSendStatusToChannelData(activities);
         activities = cleanPowerVirtualAgentsActivities(activities);
         activities = cleanOmnichannelActivities(activities);
         activities = cleanAdaptiveCardActivities(activities);
@@ -73,6 +74,8 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
     const store = createStore({ activities }, () => next => action => {
         return next(action);
     });
+
+    // const store = createStore({ activities });
 
     const defaultStyleOptions: StyleOptions = {
         backgroundColor: "none", // Use background color set by Power BI
