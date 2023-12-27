@@ -6,6 +6,7 @@ import powerbi from "powerbi-visuals-api";
 import VisualConstructorOptions = powerbi.extensibility.visual.VisualConstructorOptions;
 import VisualUpdateOptions = powerbi.extensibility.visual.VisualUpdateOptions;
 import IVisual = powerbi.extensibility.visual.IVisual;
+import IVisualEventService = powerbi.extensibility.IVisualEventService;
 
 import VisualObjectInstance = powerbi.VisualObjectInstance;
 import EnumerateVisualObjectInstancesOptions = powerbi.EnumerateVisualObjectInstancesOptions;
@@ -21,11 +22,13 @@ export class Visual implements IVisual {
     
     private constructorOptions: VisualConstructorOptions;
 
+    private events: IVisualEventService;
     private settings: VisualSettings;
 
     constructor(options: VisualConstructorOptions) {
         this.target = options.element;
         this.constructorOptions = options;
+        this.events = options.host.eventService;
         this.renderComponent(React.createElement(App, { constructorOptions: options }));
     }
 
@@ -36,15 +39,17 @@ export class Visual implements IVisual {
     }
 
     public update(options: VisualUpdateOptions) {
+        this.events.renderingStarted(options);
         this.renderComponent(React.createElement(App, { 
             constructorOptions: this.constructorOptions, 
             visualUpdateOptions: options
         }));
+        this.events.renderingFinished(options);
 
         // Persist visual settings
         if (options?.dataViews.length > 0) {
             this.settings = VisualSettings.parse(options.dataViews[0]);
-        }
+        }   
     }
 
     private renderComponent(component) {
