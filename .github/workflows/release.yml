@@ -8,12 +8,12 @@ jobs:
   package:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-    
+          node-version-file: 'package.json'
+
       # Retrieve new version to tag and publish release with
       - name: Retrieve version from tag name
         id: version
@@ -21,7 +21,7 @@ jobs:
           tag=${{ github.event.release.tag_name }}
           version_number=${tag#?}
           echo version: $version_number
-          echo "::set-output name=version::$version_number"
+          echo "version=$version_number" >> $GITHUB_OUTPUT
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
 
@@ -34,7 +34,9 @@ jobs:
         with:
           file: pbiviz.json
           field: visual.version
-          value: ${{ steps.version.outputs.version }}
+          # Visual version should consist of 4 parts for PBIViz.
+          # Package.json only supports 3 parts, thus we add an extra zero to satisfy PBIViz.
+          value: "${{ steps.version.outputs.version }}.0"
           
       - name: Commit changes
         run: |

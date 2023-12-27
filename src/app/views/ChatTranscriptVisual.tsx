@@ -75,8 +75,6 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
         return next(action);
     });
 
-    // const store = createStore({ activities });
-
     const defaultStyleOptions: StyleOptions = {
         backgroundColor: "none", // Use background color set by Power BI
         hideSendBox: true,
