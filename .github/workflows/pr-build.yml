@@ -54,8 +54,8 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const userName = "github-actions"
-            const bodyRegex = ".*Custom Visual created for.*"
+            const userName = "github-actions[bot]"
+            const includesString = "Custom Visual created for"
 
             const comments = await github.rest.issues.listComments({
               owner: context.repo.owner,
@@ -66,11 +66,11 @@ jobs:
             for (const commentTest of comments.data) {
               console.log(commentTest)
               console.log(commentTest.user)
-              console.log(commentTest.body?.match(bodyRegex))
+              console.log(commentTest.body?.includes(includesString))
             }
 
             const filteredComments = comments.data.filter(
-              it => it.user?.login === userName && it.body?.match(bodyRegex)
+              it => it.user?.login === userName && it.body?.includes(includesString)
             )
 
             for (const comment of filteredComments) {
