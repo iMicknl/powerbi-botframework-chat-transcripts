@@ -62,12 +62,6 @@ jobs:
               repo: context.repo.repo,
               issue_number: context.issue.number
             })
-            
-            for (const commentTest of comments.data) {
-              console.log(commentTest.user?.login === userName)
-              console.log(commentTest.body)
-              console.log(commentTest.body?.includes(includesString))
-            }
 
             const filteredComments = comments.data.filter(
               it => it.user?.login === userName && it.body?.includes(includesString)
