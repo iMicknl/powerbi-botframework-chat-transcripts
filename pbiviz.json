@@ -4,12 +4,12 @@
     "displayName": "Chat Transcripts for Bot Framework",
     "guid": "ChatTranscripts2EB305C130CC44C4BBF62A1A900C5379",
     "visualClassName": "Visual",
-    "version": "0.13.1",
+    "version": "0.13.1.0",
     "description": "Visualises bot transcripts (activities) which show the interactions between a user and your bot in a webchat.",
     "supportUrl": "https://github.com/iMicknl/powerbi-botframework-chat-transcripts/issues",
     "gitHubUrl": "https://github.com/iMicknl/powerbi-botframework-chat-transcripts"
   },
-  "apiVersion": "5.4.0",
+  "apiVersion": "5.7.0",
   "author": {
     "name": "Mick Vleeshouwer",
     "email": "mivleesh@microsoft.com"

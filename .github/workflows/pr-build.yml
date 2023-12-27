@@ -13,12 +13,15 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Retrieve pbiviz.json file to retrieve version number
+        run: echo "PBIVIZ_JSON=$(jq -c . < pbiviz.json)" >> $GITHUB_ENV
+
       - name: Update pbiviz.json version to include PR number
         uses: jossef/action-set-json-field@v1
         with:
           file: pbiviz.json
           field: visual.version
-          value: "beta#${{ github.event.pull_request.number }}"
+          value: "${{ fromJson(env.PBIVIZ_JSON).visual.version }}beta#${{ github.event.pull_request.number }}"
 
       - name: Cache node modules
         uses: actions/cache@v2
