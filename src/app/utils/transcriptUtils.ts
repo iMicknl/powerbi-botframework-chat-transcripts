@@ -16,7 +16,7 @@ export const convertTextToActivities = (textValue: string): IActivity[] => {
     } catch (error) {
         if (textValue.length == 32766) {
             console.error(error);
-            throw new Error("JSON invalid. Your chat conversation exceeds the 32766 character limit of Power BI.");
+            throw new Error("JSON invalid. This chat conversation most likely exceeds the 32766 character limit per field in Power BI.");
         }
         console.error(error);
         throw new Error("JSON invalid.");
