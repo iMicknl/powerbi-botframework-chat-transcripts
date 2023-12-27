@@ -62,11 +62,14 @@ jobs:
               repo: context.repo.repo,
               issue_number: context.issue.number
             })
+
+            console.log(comments)
             
             const filteredComments = comments.data.filter(
               it => it.user?.login === userName && it.body?.match(bodyRegex)
             )
 
+            console.log(context)
             console.log(filteredComments)
 
             for (const comment of filteredComments) {
@@ -90,7 +93,6 @@ jobs:
           url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}"
           echo url: $url
           echo "url=$url" >> $GITHUB_OUTPUT
-          echo ${{ github }}
       
       - name: Comment with details on the packaged version (for testing purposes)
         uses: actions/github-script@v7
