@@ -13,12 +13,8 @@ jobs:
         with:
           node-version: "20"
 
-      - run: |
-          echo 'PBI_VIZ_JSON<<EOF' >> $GITHUB_ENV
-          cat ./pbiviz.json >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
-      - run: |
-          echo '${{ fromJson(env.PBI_VIZ_JSON).visual.version }}'
+      - run: echo "PBIVIZ_JSON=$(jq -c . < pbiviz.json)" >> $GITHUB_ENV
+      - run: echo '${{ fromJson(env.PBIVIZ_JSON).visual.version }}'
 
       - name: Update pbiviz.json version to include PR number
         uses: jossef/action-set-json-field@v1
