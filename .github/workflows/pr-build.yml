@@ -64,8 +64,8 @@ jobs:
             })
             
             for (const commentTest of comments.data) {
-              console.log(commentTest)
-              console.log(commentTest.user)
+              console.log(commentTest.user?.login === userName)
+              console.log(commentTest.body)
               console.log(commentTest.body?.includes(includesString))
             }
 
