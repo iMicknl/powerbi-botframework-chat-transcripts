@@ -2,7 +2,7 @@ import React from 'react';
 import ReactWebChat, { createStore, StyleOptions } from 'botframework-webchat';
 import { ActivityTypes, IActivity } from "botframework-schema";
 
-import { addSendStatusToChannelData, convertTextToActivities, cleanPowerVirtualAgentsActivities, cleanOmnichannelActivities, cleanAdaptiveCardActivities } from '.././utils/transcriptUtils'
+import { addSendStatusToChannelData, convertTextToActivities, cleanPowerVirtualAgentsActivities, cleanOmnichannelActivities, cleanTeamsActivities, cleanAdaptiveCardActivities } from '.././utils/transcriptUtils'
 import { VisualSettings } from '../../settings';
 
 import { OfflineHistoryConnection } from '../OfflineHistoryConnection'
@@ -39,6 +39,7 @@ export const ChatTranscriptVisual = (props: ChatTranscriptVisualProps): JSX.Elem
         activities = cleanPowerVirtualAgentsActivities(activities);
         activities = cleanOmnichannelActivities(activities);
         activities = cleanAdaptiveCardActivities(activities);
+        activities = cleanTeamsActivities(activities);
     } catch (error) {
         return <>Transcript cannot be loaded. Issue with transformation: {error.toString()}</>;
     }
