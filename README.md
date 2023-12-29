@@ -1,25 +1,24 @@
-![screenshot of Power BI Custom Visual](https://github.com/iMicknl/powerbi-botframework-chat-transcripts/blob/main/media/powerbi-custom-visual.png?raw=true)
+![screenshot of Power BI Custom Visual](https://github.com/iMicknl/powerbi-botframework-chat-transcripts/assets/1424596/b277364c-38b0-4722-b5c7-ea3c5b4cb49f)
 
-# Chat Transcripts for Bot Framework - Custom Visual
+# Custom Visual: Visualize Chat Transcripts in Power BI
 
-This custom visual for Power BI  visualises bot transcripts (activities) to show the interactions between a user and your bot in a webchat. Add transcript logging to your Power BI (Embedded) scenarios!
+This custom visual for Power BI  visualises bot transcripts (activities) to show the interactions between a user and your bot in a chat interface. Combine your statistics with user conversations in your Power BI (Embedded) report to learn how to improve your chatbot. 
 
-In order to use this custom visual, you will need to have your activities (array) in JSON format and compliant to the [Bot Framework Activity schema](https://github.com/microsoft/botframework-sdk/blob/main/specs/botframework-activity/botframework-activity.md#message-activity). This is the default format for [Power Virtual Agents transcripts, saved in Dataverse](https://docs.microsoft.com/en-us/power-virtual-agents/analytics-sessions-transcripts).
+In order to use this custom visual, you will need to have your activities (array) in JSON format and compliant to the [Bot Framework Activity schema](https://github.com/microsoft/botframework-sdk/blob/main/specs/botframework-activity/botframework-activity.md#message-activity). This is the default format for [Microsoft Copilot Studio / Power Virtual Agents transcripts, saved in Dataverse](https://docs.microsoft.com/en-us/power-virtual-agents/analytics-sessions-transcripts).
 
 ## Features
 
-- Visualize Bot Framework (transcript) activities
-- Visualize Power Virtual Agents chat activities
+- Visualize your chat transcripts (Microsoft Copilot Studio / Power Virtual Agents / Bot Framework)
 - Web Chat language based on Power BI language
 - Style your Web Chat via Power BI visual settings
 
 ## How to use
 
-### Power Virtual Agents
+### Microsoft Copilot Studio
 
-This transcript viewer is now available as part of PVA Custom Analytics, see the [official Power Virtual Agents blog post](https://powervirtualagents.microsoft.com/nl-nl/blog/transcript-viewer-now-available-as-part-of-pva-custom-analytics/) for more information. This solution allows customers to create a Power BI dashboard for their Power Virtual Agents chatbots, and includes pre-created screens to show all-up performance, customer satisfaction, topics and transcripts.
+This transcript viewer is now available as part of Copilot Studio Custom Analytics, see the [official blog post](https://powervirtualagents.microsoft.com/nl-nl/blog/transcript-viewer-now-available-as-part-of-pva-custom-analytics/) for more information. This solution allows customers to create a Power BI dashboard for their copilots built in Microsoft Copilot Studio, and includes pre-created screens to show all-up performance, customer satisfaction, topics and transcripts.
 
-Report: [CustomAnalytics for Power Virtual Agents](https://github.com/microsoft/PowerVirtualAgentsSamples/tree/master/CustomAnalytics)
+Report: [CustomAnalytics for Copilot Studio](https://github.com/microsoft/CopilotStudioSamples/tree/master/CustomAnalytics)
 
 ### Custom Power BI report / other scenarios
 
@@ -30,6 +29,11 @@ To import a Power BI visual from a file, see [Import a visual file from your loc
 >If don't trust pregenerated .pbiviz files, feel free to checkout and review the code in this repository and 
 [package your own visual](#package-for-production). This way you can be 100% sure that your data is not leaving your environment. In the future, the plan is to get have this visual [certified by Power BI](https://docs.microsoft.com/en-us/power-bi/developer/visuals/power-bi-custom-visuals-certified) and added to AppSource.
 
+## How to handle updates?
+
+Since this visual is not published on Power BI Marketplace, you will need to download updates yourself. Updating the visual is recommended due to possible vulnerabilities in older versions of the visual dependencies. Download the latest version and import the visual as usual. This will update the visual to the latest version.
+
+If you want to be notified on new releases, you can [subscribe to releases via GitHub](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions).
 
 ## How to contribute to the development
 
