@@ -51,6 +51,7 @@ jobs:
 
       - name: Remove previous comments
         uses: actions/github-script@v7
+        continue-on-error: true
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
@@ -91,6 +92,7 @@ jobs:
       
       - name: Comment with details on the packaged version (for testing purposes)
         uses: actions/github-script@v7
+        continue-on-error: true
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
