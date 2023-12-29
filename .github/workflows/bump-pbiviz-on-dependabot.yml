@@ -29,19 +29,23 @@ jobs:
           echo "apiVersion=$version_number" >> $GITHUB_OUTPUT
 
       - uses: actions/checkout@v4
+        if: "contains(steps.metadata.outputs.dependency-names, 'powerbi-visuals-api')"
 
       - uses: actions/setup-node@v4
+        if: "contains(steps.metadata.outputs.dependency-names, 'powerbi-visuals-api')"
         with:
           node-version-file: 'package.json'
 
       - name: Update pbiviz.json apiVersion to new package version (powerbi-visuals-api)
         uses: jossef/action-set-json-field@v2
+        if: "contains(steps.metadata.outputs.dependency-names, 'powerbi-visuals-api')"
         with:
           file: pbiviz.json
           field: apiVersion
           value: "${{ steps.version.outputs.apiVersion }}"
 
       - name: Commit changes
+        if: "contains(steps.metadata.outputs.dependency-names, 'powerbi-visuals-api')"
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
