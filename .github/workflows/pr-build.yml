@@ -51,7 +51,7 @@ jobs:
 
       - name: Remove previous comments
         uses: actions/github-script@v7
-        continue-on-error: true
+        continue-on-error: true # Temporary fix for dependabot/fork PRs, should use workflow_run to have access to secrets https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
