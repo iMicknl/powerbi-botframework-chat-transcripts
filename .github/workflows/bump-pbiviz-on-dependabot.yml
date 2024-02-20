@@ -28,19 +28,17 @@ jobs:
       #     echo "apiVersion=$version_number" >> $GITHUB_OUTPUT
 
       - uses: actions/checkout@v4
+        if: "contains(steps.metadata.outputs.dependency-names, 'powerbi-visuals-api')"
 
       - name: Retrieve package.json file to retrieve new version number
         id: version
         if: "contains(steps.metadata.outputs.dependency-names, 'powerbi-visuals-api')"
         run: |
-          api_version_number="$(jq -c . < package.json) | .dependencies | .["powerbi-visuals-api"])"
-          version_number=${api_version_number//~}
+          api_version_number="$(jq -c '.dependencies["powerbi-visuals-api"]' < package.json)"
+          version_number="$version_number" | sed 's/\~//g'
           echo apiVersion: $version_number
           echo "apiVersion=$version_number" >> $GITHUB_OUTPUT
-
-      - uses: actions/checkout@v4
-        if: "contains(steps.metadata.outputs.dependency-names, 'powerbi-visuals-api')"
-
+          
       - uses: actions/setup-node@v4
         if: "contains(steps.metadata.outputs.dependency-names, 'powerbi-visuals-api')"
         with:
