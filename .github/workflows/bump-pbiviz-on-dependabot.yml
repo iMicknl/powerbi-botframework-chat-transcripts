@@ -53,6 +53,14 @@ jobs:
           field: apiVersion
           value: "${{ steps.version.outputs.apiVersion }}"
 
+      - name: Extract branch name
+        if: "contains(steps.metadata.outputs.dependency-names, 'powerbi-visuals-api')"
+        shell: bash
+        run: |
+          echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
+          echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
+
       - name: Commit changes
         if: "contains(steps.metadata.outputs.dependency-names, 'powerbi-visuals-api')"
         run: |
@@ -60,4 +68,4 @@ jobs:
           git config --local user.name "GitHub Action"
           git add pbiviz.json
           git commit -m "Bump apiVersion to ${{ steps.version.outputs.apiVersion }}."
-          git push
+          git push origin HEAD:${{ steps.extract_branch.outputs.branch }}
