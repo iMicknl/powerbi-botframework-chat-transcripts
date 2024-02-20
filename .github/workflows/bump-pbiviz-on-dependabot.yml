@@ -27,6 +27,8 @@ jobs:
       #     echo apiVersion: $version_number
       #     echo "apiVersion=$version_number" >> $GITHUB_OUTPUT
 
+      - uses: actions/checkout@v4
+
       - name: Retrieve package.json file to retrieve new version number
         id: version
         if: "contains(steps.metadata.outputs.dependency-names, 'powerbi-visuals-api')"
