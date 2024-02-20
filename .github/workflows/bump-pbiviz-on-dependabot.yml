@@ -16,17 +16,26 @@ jobs:
         uses: dependabot/fetch-metadata@v1
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
-      - name: Retrieve apiVersion from package update
+
+      # newVersion cannot be retrieved with grouped updates. Falling back to JSON reading.
+      # See https://github.com/dependabot/fetch-metadata/issues/402
+      # - name: Retrieve apiVersion from package update
+      #   id: version
+      #   if: "contains(steps.metadata.outputs.dependency-names, 'powerbi-visuals-api')"
+      #   run: |
+      #     version_number="$(echo '${{ steps.metadata.outputs.updated-dependencies-json }}' | jq '.[] | select(.dependencyName=="powerbi-visuals-api") | .newVersion')";
+      #     echo apiVersion: $version_number
+      #     echo "apiVersion=$version_number" >> $GITHUB_OUTPUT
+
+      - name: Retrieve package.json file to retrieve new version number
         id: version
         if: "contains(steps.metadata.outputs.dependency-names, 'powerbi-visuals-api')"
         run: |
-          version_number="$(echo '${{ steps.metadata.outputs.updated-dependencies-json }}' | jq '.[] | select(.dependencyName=="powerbi-visuals-api") | .newVersion')";
+          api_version_number="$(jq -c . < package.json) | .dependencies | .["powerbi-visuals-api"])"
+          version_number=${api_version_number//~}
           echo apiVersion: $version_number
-
           echo "apiVersion=$version_number" >> $GITHUB_OUTPUT
 
-          echo "Dependency group: ${{steps.metadata.outputs.dependency-group}}"
-          echo "Updated dependencies: ${{steps.metadata.outputs.updated-dependencies-json}}"
       - uses: actions/checkout@v4
         if: "contains(steps.metadata.outputs.dependency-names, 'powerbi-visuals-api')"
 
