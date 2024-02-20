@@ -20,13 +20,13 @@ jobs:
         id: version
         if: "contains(steps.metadata.outputs.dependency-names, 'powerbi-visuals-api')"
         run: |
-          version_number="$(echo '${{ steps.dependabot-metadata.outputs.updated-dependencies-json }}' | jq '.[] | select(.dependencyName=="powerbi-visuals-api") | .newVersion')";
+          version_number="$(echo '${{ steps.metadata.outputs.updated-dependencies-json }}' | jq '.[] | select(.dependencyName=="powerbi-visuals-api") | .newVersion')";
           echo apiVersion: $version_number
 
           echo "apiVersion=$version_number" >> $GITHUB_OUTPUT
 
-          echo "Dependency group: ${{steps.dependabot-metadata.outputs.dependency-group}}"
-          echo "Updated dependencies: ${{steps.dependabot-metadata.outputs.updated-dependencies-json}}"
+          echo "Dependency group: ${{steps.metadata.outputs.dependency-group}}"
+          echo "Updated dependencies: ${{steps.metadata.outputs.updated-dependencies-json}}"
       - uses: actions/checkout@v4
         if: "contains(steps.metadata.outputs.dependency-names, 'powerbi-visuals-api')"
 
