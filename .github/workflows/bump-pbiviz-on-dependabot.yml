@@ -35,7 +35,7 @@ jobs:
         if: "contains(steps.metadata.outputs.dependency-names, 'powerbi-visuals-api')"
         run: |
           api_version_number="$(jq -c '.dependencies["powerbi-visuals-api"]' < package.json)"
-          version_number="$version_number" | sed 's/\~//g'
+          version_number="$api_version_number" | sed 's/\~//g'
           echo apiVersion: $version_number
           echo "apiVersion=$version_number" >> $GITHUB_OUTPUT
           
