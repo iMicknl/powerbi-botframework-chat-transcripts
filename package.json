@@ -23,7 +23,7 @@
   "dependencies": {
     "@babel/runtime": "^7.23.9",
     "@babel/runtime-corejs2": "^7.23.9",
-    "@types/react": "^18.2.59",
+    "@types/react": "^18.2.60",
     "@types/react-dom": "^18.2.19",
     "botframework-directlinejs": "^0.15.2",
     "botframework-schema": "^4.22.1",
