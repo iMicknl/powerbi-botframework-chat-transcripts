@@ -30,7 +30,7 @@
     "botframework-webchat": "^4.16.0",
     "core-js": "^3.36.1",
     "moment": "^2.30.1",
-    "powerbi-visuals-api": "~5.7.0",
+    "powerbi-visuals-api": "~5.9.0",
     "powerbi-visuals-utils-dataviewutils": "^6.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
